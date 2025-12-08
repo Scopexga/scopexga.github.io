@@ -1890,8 +1890,8 @@
         let currentStep = 1;
         let currentFilter = 'all';
         
-        // Your WhatsApp number for receiving orders (CHANGE THIS TO YOUR NUMBER)
-        const YOUR_WHATSAPP_NUMBER = "2206787259"; // Replace with your actual WhatsApp number
+        // Your WhatsApp number for receiving orders
+        const YOUR_WHATSAPP_NUMBER = "2206787259";
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
@@ -2296,7 +2296,39 @@
             document.getElementById('confirmationModal').classList.add('active');
         }
 
-        // FIXED: WhatsApp Message Function - Now sends to YOUR number
+        // WhatsApp Helper Function for Mobile Compatibility
+        function openWhatsApp(url) {
+            // Try multiple methods for maximum mobile compatibility
+            try {
+                // Method 1: Direct location change (works on iOS Safari)
+                window.location.href = url;
+                
+                // Method 2: Fallback with timeout
+                setTimeout(() => {
+                    // If still on same page, try window.open
+                    if (!document.hidden) {
+                        const newWindow = window.open(url, '_blank');
+                        if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                            // If popup blocked, create and click a link
+                            const link = document.createElement('a');
+                            link.href = url;
+                            link.target = '_blank';
+                            link.rel = 'noopener noreferrer';
+                            link.style.display = 'none';
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        }
+                    }
+                }, 250);
+            } catch (e) {
+                console.error('Error opening WhatsApp:', e);
+                // Last resort: Show instructions
+                return false;
+            }
+            return true;
+        }
+
         function completeOrder() {
             // Get form data
             const orderData = {
@@ -2329,13 +2361,38 @@
             // Show loading
             showNotification('Preparing order details...', 'success');
             
-            // After 1.5 seconds, open WhatsApp with the order details for YOU
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            
+            // After 1.5 seconds, open WhatsApp with the order details
             setTimeout(() => {
-                // Create WhatsApp URL with your number
-                const whatsappURL = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+                // Try to open WhatsApp
+                const opened = openWhatsApp(whatsappURL);
                 
-                // Open WhatsApp in new tab for YOU to receive the order
-                window.open(whatsappURL, '_blank');
+                // If WhatsApp didn't open, show manual instructions
+                setTimeout(() => {
+                    if (!opened) {
+                        showNotification('WhatsApp not opening? Please manually message +220 678 7259 with your order details.', 'warning');
+                        
+                        // Optionally show the message so they can copy-paste
+                        const copyText = "Order Details:\n\n" + 
+                            `Order ID: ${orderData.orderId}\n` +
+                            `Name: ${orderData.customer.firstName} ${orderData.customer.lastName}\n` +
+                            `Total: D${orderData.total}\n` +
+                            `Payment Method: ${orderData.payment.method}\n\n` +
+                            "Please send this info to +220 678 7259 on WhatsApp.";
+                        
+                        // Create a textarea to copy from
+                        const textArea = document.createElement('textarea');
+                        textArea.value = copyText;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        
+                        showNotification('Order details copied! Paste them in WhatsApp.', 'success');
+                    }
+                }, 1000);
                 
                 // Clear cart and reset
                 cart = [];
@@ -2353,12 +2410,12 @@
                     document.querySelector('.container > section:first-of-type').style.display = 'block';
                     document.querySelector('.whatsapp-groups').style.display = 'block';
                     document.getElementById('checkoutSection').style.display = 'none';
-                    showNotification('Order completed! You should receive the order on WhatsApp.', 'success');
+                    showNotification('WhatsApp should open with your order details. If not, please message +220 678 7259 manually.', 'success');
                 }, 1000);
             }, 1500);
         }
 
-        // FIXED: Build WhatsApp message for YOU (the seller)
+        // Build WhatsApp message for YOU (the seller)
         function buildSellerWhatsAppMessage(order) {
             const hasAppleCards = order.items.some(item => item.game === 'Apple Gift Card');
             

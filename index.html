@@ -6,34 +6,68 @@
     <title>ANONYMOUS GAMING TOP-UPS | Premium Game Top-Ups & Gift Cards</title>
     <meta name="description" content="ANONYMOUS Gaming Top-Ups - Premium game top-ups, diamonds, UC, Robux & Apple gift cards. Instant delivery 24/7. Best prices for Free Fire, PUBG, Blood Strike, Roblox.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         :root {
-            --primary: #00ff88;
-            --secondary: #0099ff;
+            --primary: #00ff9d;
+            --primary-dark: #00cc7d;
+            --secondary: #7b61ff;
             --accent: #ff2a6d;
-            --dark: #0a0a0f;
-            --darker: #050508;
-            --card: #12121a;
-            --light: #f8f8f8;
-            --gray: #b0b0b0;
-            --success: #00ff88;
+            --dark: #0a0a14;
+            --darker: #05050a;
+            --card: #12121f;
+            --light: #ffffff;
+            --gray: #a0a0c0;
+            --success: #00ff9d;
             --warning: #ffb300;
             --error: #ff2a6d;
+            --neon-blue: #00f7ff;
+            --neon-purple: #b967ff;
         }
 
         body {
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            background: linear-gradient(135deg, var(--darker) 0%, #0d0d1a 50%, var(--dark) 100%);
             color: var(--light);
             min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(123, 97, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 157, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 42, 109, 0.08) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 157, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 157, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.3;
         }
 
         .container {
@@ -42,16 +76,246 @@
             padding: 0 20px;
         }
 
-        /* Professional Price Display */
-        .price-card {
-            background: linear-gradient(145deg, #13131b, #101016);
-            border-radius: 16px;
-            padding: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Animated Header */
+        .cyber-header {
+            background: rgba(10, 10, 20, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
+            box-shadow: 0 10px 40px rgba(0, 255, 157, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1.2rem 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0.2;
+            filter: blur(10px);
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--darker);
+            box-shadow: 0 5px 20px rgba(0, 255, 157, 0.4);
             position: relative;
             overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+        }
+
+        .logo-text span {
+            font-size: 0.85rem;
+            color: var(--gray);
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(123, 97, 255, 0.1));
+            border: 1px solid rgba(0, 255, 157, 0.2);
+            border-radius: 10px;
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
             height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .contact-btn:hover::before {
+            left: 100%;
+        }
+
+        .contact-btn:hover {
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.2), rgba(123, 97, 255, 0.2));
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.2);
+        }
+
+        .contact-btn i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 157, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            text-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
+        }
+
+        .hero p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Enhanced Price Cards */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 4rem 0;
+        }
+
+        .price-card {
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.8), rgba(10, 10, 20, 0.9));
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
 
         .price-card::before {
@@ -60,25 +324,41 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
+            height: 3px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             opacity: 0;
             transition: opacity 0.3s;
         }
 
-        .price-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.15);
+        .price-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .price-card:hover::before {
+        .price-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(0, 255, 157, 0.1),
+                0 0 30px rgba(0, 255, 157, 0.1);
+        }
+
+        .price-card:hover::before,
+        .price-card:hover::after {
             opacity: 1;
         }
 
         .price-card.featured {
             border: 2px solid var(--primary);
-            background: linear-gradient(145deg, #13131b, rgba(0, 255, 136, 0.05));
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.9), rgba(0, 255, 157, 0.05));
         }
 
         .price-card.featured::before {
@@ -87,62 +367,74 @@
 
         .price-badge {
             position: absolute;
-            top: 16px;
-            right: 16px;
-            background: var(--accent);
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent), #ff5500);
             color: white;
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(255, 42, 109, 0.3);
+            z-index: 2;
         }
 
         .price-header {
-            margin-bottom: 20px;
-            padding-bottom: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
 
         .price-name {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
             color: var(--light);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             line-height: 1.4;
         }
 
         .price-game {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--gray);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+        }
+
+        .price-game i {
+            font-size: 1.1rem;
         }
 
         .price-value {
-            font-size: 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
             font-weight: 800;
             color: var(--primary);
             line-height: 1;
-            margin: 20px 0;
+            margin: 25px 0;
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
         }
 
         .price-currency {
             font-size: 1rem;
             color: var(--gray);
             font-weight: 500;
-            margin-left: 4px;
+            margin-left: 5px;
         }
 
         .price-per-unit {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--gray);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
         }
 
         .price-per-unit i {
@@ -151,40 +443,64 @@
 
         .price-features {
             list-style: none;
-            margin: 20px 0;
+            margin: 25px 0;
         }
 
         .price-features li {
             color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .price-features li:last-child {
+            border-bottom: none;
         }
 
         .price-features li i {
             color: var(--primary);
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            width: 20px;
         }
 
         .price-action {
-            margin-top: 24px;
+            margin-top: 30px;
         }
 
         .price-btn {
             width: 100%;
-            padding: 12px;
-            border-radius: 10px;
+            padding: 16px;
+            border-radius: 12px;
             border: none;
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .price-btn:hover::before {
+            left: 100%;
         }
 
         .price-btn.primary {
@@ -193,46 +509,39 @@
         }
 
         .price-btn.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.4);
         }
 
         .price-btn.secondary {
-            background: rgba(0, 255, 136, 0.1);
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(123, 97, 255, 0.1));
             color: var(--primary);
-            border: 1px solid var(--primary);
+            border: 1px solid rgba(0, 255, 157, 0.3);
         }
 
         .price-btn.secondary:hover {
-            background: var(--primary);
-            color: var(--darker);
-        }
-
-        /* Price Grid Layout */
-        .price-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 32px;
-        }
-
-        @media (max-width: 768px) {
-            .price-grid {
-                grid-template-columns: 1fr;
-            }
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.2), rgba(123, 97, 255, 0.2));
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.2);
         }
 
         /* Game Category Filters */
         .game-filters {
             display: flex;
-            gap: 12px;
-            margin-bottom: 32px;
+            gap: 15px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
             justify-content: center;
+            background: rgba(18, 18, 31, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
         }
 
         .filter-btn {
-            padding: 10px 24px;
+            padding: 12px 28px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 30px;
@@ -240,18 +549,42 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
         }
 
         .filter-btn:hover {
-            background: rgba(0, 255, 136, 0.1);
-            color: var(--primary);
+            color: var(--light);
             border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 157, 0.1);
         }
 
         .filter-btn.active {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--darker);
             border-color: transparent;
+            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.3);
+        }
+
+        .filter-btn.active::before {
+            opacity: 1;
         }
 
         /* Checkout Page Redesign */
@@ -263,8 +596,8 @@
 
         .checkout-grid {
             display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 32px;
+            grid-template-columns: 1fr 420px;
+            gap: 40px;
         }
 
         @media (max-width: 1024px) {
@@ -277,18 +610,23 @@
         .checkout-steps {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             position: relative;
+            padding: 0 20px;
         }
 
         .checkout-steps::before {
             content: '';
             position: absolute;
-            top: 20px;
+            top: 24px;
             left: 50px;
             right: 50px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.1);
+            height: 3px;
+            background: linear-gradient(90deg, 
+                rgba(0, 255, 157, 0.3) 0%,
+                rgba(123, 97, 255, 0.3) 50%,
+                rgba(255, 42, 109, 0.3) 100%
+            );
             z-index: 1;
         }
 
@@ -302,72 +640,92 @@
         }
 
         .step-circle {
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             color: var(--gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 600;
-            margin-bottom: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
             transition: all 0.3s;
+            font-size: 1.2rem;
+            border: 2px solid transparent;
         }
 
         .step.active .step-circle {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--darker);
-            box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.2);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 5px rgba(0, 255, 157, 0.2),
+                        0 10px 25px rgba(0, 255, 157, 0.3);
+            transform: scale(1.1);
         }
 
         .step-label {
             font-size: 0.9rem;
             color: var(--gray);
             text-align: center;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .step.active .step-label {
             color: var(--primary);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* Checkout Form */
         .checkout-form-container {
-            background: var(--card);
-            border-radius: 20px;
-            padding: 32px;
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.9), rgba(10, 10, 20, 0.95));
+            border-radius: 25px;
+            padding: 40px;
             border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
 
         .checkout-section {
-            margin-bottom: 40px;
+            margin-bottom: 45px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .section-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--light);
-            margin-bottom: 24px;
-            padding-bottom: 16px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.07);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .section-title i {
             color: var(--primary);
+            font-size: 1.6rem;
+            background: rgba(0, 255, 157, 0.1);
+            padding: 12px;
+            border-radius: 12px;
         }
 
         /* Form Elements */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 20px;
         }
 
         @media (max-width: 768px) {
@@ -379,32 +737,36 @@
         .form-label {
             display: block;
             color: var(--light);
-            font-weight: 500;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .form-label .required {
             color: var(--accent);
-            margin-left: 4px;
+            font-size: 1.2rem;
         }
 
         .form-input {
             width: 100%;
-            padding: 14px 16px;
+            padding: 16px 20px;
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            border-radius: 12px;
             color: var(--light);
             font-size: 1rem;
             transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--primary);
-            background: rgba(0, 255, 136, 0.05);
-            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+            background: rgba(0, 255, 157, 0.05);
+            box-shadow: 0 0 0 3px rgba(0, 255, 157, 0.1);
         }
 
         .form-input.error {
@@ -413,166 +775,270 @@
         }
 
         .form-hint {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--gray);
-            margin-top: 6px;
+            margin-top: 8px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
         }
 
         .form-hint i {
             color: var(--primary);
+            font-size: 1rem;
         }
 
         /* Payment Methods */
         .payment-methods {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 12px;
-            margin-top: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .payment-method {
             background: rgba(0, 0, 0, 0.3);
             border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 16px;
+            border-radius: 15px;
+            padding: 25px 15px;
             cursor: pointer;
             transition: all 0.3s;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-method::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(123, 97, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .payment-method:hover {
             border-color: var(--primary);
-            background: rgba(0, 255, 136, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.1);
+        }
+
+        .payment-method:hover::before {
+            opacity: 1;
         }
 
         .payment-method.selected {
             border-color: var(--primary);
-            background: rgba(0, 255, 136, 0.1);
-            box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+            background: rgba(0, 255, 157, 0.1);
+            box-shadow: 
+                0 0 0 2px rgba(0, 255, 157, 0.2),
+                0 10px 25px rgba(0, 255, 157, 0.2);
         }
 
         .payment-icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
             color: var(--primary);
         }
 
         .payment-name {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--light);
-            font-size: 0.9rem;
+            font-size: 1rem;
+            letter-spacing: 1px;
         }
 
         /* Order Summary */
         .order-summary-container {
-            background: var(--card);
-            border-radius: 20px;
-            padding: 32px;
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.9), rgba(10, 10, 20, 0.95));
+            border-radius: 25px;
+            padding: 40px;
             border: 1px solid rgba(255, 255, 255, 0.07);
             position: sticky;
-            top: 32px;
+            top: 40px;
             height: fit-content;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .order-summary-title {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .order-summary-title i {
+            color: var(--primary);
+            background: rgba(0, 255, 157, 0.1);
+            padding: 12px;
+            border-radius: 12px;
         }
 
         .order-items {
-            margin: 24px 0;
-            max-height: 300px;
+            margin: 25px 0;
+            max-height: 400px;
             overflow-y: auto;
-            padding-right: 8px;
+            padding-right: 10px;
         }
 
         .order-items::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
 
         .order-items::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 3px;
+            border-radius: 4px;
         }
 
         .order-items::-webkit-scrollbar-thumb {
             background: var(--primary);
-            border-radius: 3px;
+            border-radius: 4px;
         }
 
         .order-item {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
+            padding: 18px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            align-items: center;
         }
 
         .order-item:last-child {
             border-bottom: none;
         }
 
+        .item-info {
+            flex: 1;
+        }
+
         .item-name {
             color: var(--light);
-            font-weight: 500;
-            margin-bottom: 4px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1rem;
         }
 
         .item-game {
             font-size: 0.85rem;
             color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .item-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .item-controls button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .item-controls button:hover {
+            background: var(--primary);
+            color: var(--darker);
+            border-color: var(--primary);
+        }
+
+        .item-quantity {
+            font-weight: 600;
+            color: var(--light);
+            min-width: 30px;
+            text-align: center;
         }
 
         .item-price {
             color: var(--primary);
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1.1rem;
+            min-width: 100px;
             text-align: right;
-        }
-
-        .item-quantity {
-            font-size: 0.85rem;
-            color: var(--gray);
+            font-family: 'Orbitron', sans-serif;
         }
 
         .order-total {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 25px 0;
             border-top: 2px solid rgba(255, 255, 255, 0.1);
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            margin: 20px 0;
+            margin: 30px 0;
         }
 
         .total-label {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--light);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .total-amount {
-            font-size: 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
             font-weight: 800;
             color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
         }
 
         /* Action Buttons */
         .action-buttons {
             display: flex;
-            gap: 16px;
-            margin-top: 32px;
+            gap: 20px;
+            margin-top: 40px;
         }
 
         .action-btn {
             flex: 1;
-            padding: 16px;
-            border-radius: 10px;
-            font-weight: 600;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 12px;
             border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .action-btn:hover::before {
+            left: 100%;
         }
 
         .action-btn.primary {
@@ -581,20 +1047,21 @@
         }
 
         .action-btn.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 255, 157, 0.4);
         }
 
         .action-btn.secondary {
             background: transparent;
             color: var(--light);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .action-btn.secondary:hover {
             border-color: var(--primary);
             color: var(--primary);
-            background: rgba(0, 255, 136, 0.05);
+            background: rgba(0, 255, 157, 0.05);
+            transform: translateY(-3px);
         }
 
         /* Confirmation Modal */
@@ -604,101 +1071,103 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 10, 0.95);
+            backdrop-filter: blur(20px);
             display: none;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            z-index: 2000;
             padding: 20px;
+            animation: fadeIn 0.3s ease;
         }
 
         .confirmation-modal.active {
             display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         .confirmation-card {
-            background: var(--card);
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 500px;
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.95), rgba(10, 10, 20, 0.98));
+            border-radius: 25px;
+            padding: 50px;
+            max-width: 550px;
             width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             text-align: center;
-            animation: slideUp 0.4s ease;
+            animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
         }
 
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px) scale(0.9);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
 
+        .confirmation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+
         .confirmation-icon {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 2rem;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
             color: var(--darker);
+            box-shadow: 0 20px 40px rgba(0, 255, 157, 0.4);
         }
 
         .confirmation-title {
-            font-size: 1.8rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
             color: var(--light);
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--neon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .confirmation-message {
             color: var(--gray);
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             line-height: 1.6;
-        }
-
-        /* Loader */
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+            font-size: 1.1rem;
         }
 
         /* Notification */
         .notification {
             position: fixed;
-            top: 32px;
-            right: 32px;
-            padding: 16px 24px;
-            background: var(--card);
+            top: 40px;
+            right: 40px;
+            padding: 20px 30px;
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.95), rgba(10, 10, 20, 0.98));
             border-left: 4px solid var(--primary);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             transform: translateX(150%);
             transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 1001;
+            z-index: 2001;
             max-width: 400px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
         }
 
         .notification.active {
@@ -709,11 +1178,95 @@
         .notification.error { border-color: var(--error); }
         .notification.warning { border-color: var(--warning); }
 
+        #notificationMessage {
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        /* Floating Cart Button */
+        #floatingCart {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 1000;
+            display: none;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        #floatingCart button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            padding: 18px 36px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 
+                0 15px 40px rgba(0, 255, 157, 0.4),
+                0 0 0 2px rgba(0, 255, 157, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #floatingCart button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        #floatingCart button:hover::before {
+            left: 100%;
+        }
+
+        #floatingCart button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 20px 50px rgba(0, 255, 157, 0.6),
+                0 0 0 2px rgba(0, 255, 157, 0.3);
+        }
+
+        #floatingCart button i {
+            font-size: 1.3rem;
+        }
+
+        #cartCount {
+            background: var(--darker);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .price-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .checkout-form-container,
             .order-summary-container {
-                padding: 24px;
+                padding: 25px;
             }
             
             .action-buttons {
@@ -721,94 +1274,61 @@
             }
             
             .notification {
-                top: 16px;
-                right: 16px;
-                left: 16px;
+                top: 20px;
+                right: 20px;
+                left: 20px;
                 max-width: none;
+            }
+            
+            #floatingCart {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .header-actions {
+                width: 100%;
+                justify-content: center;
             }
         }
 
-        /* Game Category Styles */
-        .free-fire { border-top: 4px solid #ff6600; }
-        .pubg { border-top: 4px solid #ffaa00; }
-        .bloodstrike { border-top: 4px solid #ff0040; }
-        .roblox { border-top: 4px solid #0055ff; }
-        .apple { border-top: 4px solid #333333; }
-
+        /* Game Category Colors */
         .free-fire .price-game i { color: #ff6600; }
         .pubg .price-game i { color: #ffaa00; }
         .bloodstrike .price-game i { color: #ff0040; }
         .roblox .price-game i { color: #0055ff; }
-        .apple .price-game i { color: #333333; }
+        .apple .price-game i { color: #ffffff; }
 
-        /* Website Header */
-        .website-header {
-            background: rgba(10, 10, 15, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 1.5rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--primary);
-            box-shadow: 0 5px 30px rgba(0, 255, 136, 0.15);
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--darker);
-            font-weight: 900;
-            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 1px;
-        }
-
-        .logo-text span {
-            font-size: 0.9rem;
-            color: var(--gray);
-            letter-spacing: 1px;
-        }
+        .free-fire .price-card { border-top: 3px solid #ff6600; }
+        .pubg .price-card { border-top: 3px solid #ffaa00; }
+        .bloodstrike .price-card { border-top: 3px solid #ff0040; }
+        .roblox .price-card { border-top: 3px solid #0055ff; }
+        .apple .price-card { border-top: 3px solid #999999; }
 
         /* Footer */
-        .footer {
-            background: var(--darker);
-            padding: 4rem 2rem 2rem;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(0, 255, 136, 0.1);
+        .cyber-footer {
+            background: linear-gradient(180deg, transparent, rgba(5, 5, 10, 0.8));
+            padding: 5rem 2rem 2rem;
+            margin-top: 6rem;
+            position: relative;
+        }
+
+        .cyber-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%,
+                var(--primary) 50%,
+                transparent 100%
+            );
         }
 
         .footer-container {
@@ -821,39 +1341,49 @@
 
         .footer-section h3 {
             color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 1.8rem;
             font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
         }
 
         .footer-links {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .footer-links a {
             color: var(--gray);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .footer-links a i {
+            width: 20px;
             color: var(--primary);
         }
 
         .social-icons {
             display: flex;
             gap: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         .social-icons a {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
             display: flex;
@@ -861,152 +1391,206 @@
             justify-content: center;
             color: var(--light);
             transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .social-icons a:hover {
             background: var(--primary);
             color: var(--darker);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.3);
         }
 
         .copyright {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 4rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--gray);
             font-size: 0.9rem;
         }
 
+        .copyright p {
+            margin-bottom: 0.5rem;
+        }
+
         /* WhatsApp Groups Section */
         .whatsapp-groups {
-            background: rgba(0, 153, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.05), rgba(0, 153, 255, 0.05));
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin: 4rem 0;
+            border: 1px solid rgba(37, 211, 102, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-groups::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #25D366, #128C7E, #075E54);
         }
 
         .whatsapp-groups h3 {
-            color: var(--secondary);
-            font-size: 1.5rem;
+            color: #25D366;
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
             text-align: center;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .whatsapp-groups > p {
+            color: var(--gray);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
         }
 
         .group-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .group-card {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
             text-align: center;
             transition: all 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
         .group-card:hover {
-            border-color: var(--secondary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 153, 255, 0.1);
+            border-color: #25D366;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.1);
         }
 
         .group-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.8rem;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
             color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .group-icon.free-fire { background: #ff6600; }
-        .group-icon.roblox { background: #0055ff; }
-        .group-icon.bloodstrike { background: #ff0040; }
+        .group-icon.free-fire { background: linear-gradient(135deg, #ff6600, #ff3300); }
+        .group-icon.roblox { background: linear-gradient(135deg, #0055ff, #0033cc); }
+        .group-icon.bloodstrike { background: linear-gradient(135deg, #ff0040, #cc0033); }
 
         .group-card h4 {
             color: var(--light);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
         }
 
         .group-card p {
             color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
         }
 
-        /* Region Selection Highlight */
-        .region-required {
-            color: var(--warning) !important;
-            font-weight: 600;
+        .group-card a {
+            background: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 2px solid transparent;
         }
 
-        .form-hint.region-hint {
-            background: rgba(255, 179, 0, 0.1);
-            padding: 0.8rem;
-            border-radius: 8px;
-            border-left: 3px solid var(--warning);
-            margin-top: 1rem;
+        .group-card a:hover {
+            background: transparent;
+            border-color: #25D366;
+            color: #25D366;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
         }
 
-        .form-hint.region-hint i {
-            color: var(--warning);
-        }
-
-        /* Game Filters Section */
-        .game-filters {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
+        /* Loading Animation */
+        .loader {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 10, 0.95);
+            z-index: 3000;
+            align-items: center;
             justify-content: center;
         }
 
-        .filter-btn {
-            padding: 10px 24px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            color: var(--gray);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+        .loader.active {
+            display: flex;
         }
 
-        .filter-btn:hover {
-            background: rgba(0, 255, 136, 0.1);
-            color: var(--primary);
-            border-color: var(--primary);
+        .loader-circle {
+            width: 80px;
+            height: 80px;
+            border: 5px solid transparent;
+            border-top: 5px solid var(--primary);
+            border-right: 5px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
 
-        .filter-btn.active {
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(10, 10, 20, 0.5);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--darker);
-            border-color: transparent;
+            border-radius: 5px;
         }
 
-        /* Floating Cart Button */
-        #floatingCart {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            z-index: 100;
-            display: none;
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
         }
     </style>
 </head>
 <body>
+    <!-- Background Elements -->
+    <div class="cyber-grid"></div>
+    
+    <!-- Loading Overlay -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
     <!-- Website Header -->
-    <header class="website-header">
-        <div class="header-container">
+    <header class="cyber-header">
+        <div class="header-content">
             <a href="#" class="logo">
                 <div class="logo-icon">
                     A
@@ -1017,34 +1601,75 @@
                 </div>
             </a>
             
-            <div style="display: flex; gap: 1.5rem; align-items: center;">
-                <a href="https://wa.me/2206787259" target="_blank" style="color: var(--light); text-decoration: none; font-weight: 600;">
-                    <i class="fab fa-whatsapp"></i> +220 678 7259
+            <div class="header-actions">
+                <a href="https://wa.me/2206787259" target="_blank" class="contact-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+220 678 7259</span>
                 </a>
             </div>
         </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>ANONYMOUS GAMING TOP-UPS</h1>
+            <p>Premium game top-ups, diamonds, UC, Robux & Apple gift cards at unbeatable prices. Instant delivery 24/7 with best-in-class support.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5min</div>
+                    <div class="stat-label">Delivery</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Secure</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Orders</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
     <div class="container">
         <!-- Professional Price Display Section -->
-        <section style="padding: 60px 0;">
+        <section style="padding: 40px 0;">
             <div style="text-align: center; margin-bottom: 48px;">
-                <h1 style="font-size: 2.5rem; color: var(--light); margin-bottom: 16px;">
-                    ANONYMOUS GAMING TOP-UPS
-                </h1>
+                <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--light); margin-bottom: 16px; background: linear-gradient(90deg, var(--primary), var(--neon-blue)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                    PREMIUM GAME TOP-UPS
+                </h2>
                 <p style="color: var(--gray); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
-                    Premium game top-ups, diamonds, UC, Robux & gift cards at unbeatable prices. Instant delivery 24/7.
+                    Select from our extensive catalog of gaming currencies and gift cards
                 </p>
             </div>
 
             <!-- Game Filters -->
             <div class="game-filters">
-                <button class="filter-btn active" data-filter="all">All Games</button>
-                <button class="filter-btn" data-filter="Free Fire">Free Fire</button>
-                <button class="filter-btn" data-filter="PUBG">PUBG</button>
-                <button class="filter-btn" data-filter="Blood Strike">Blood Strike</button>
-                <button class="filter-btn" data-filter="Roblox">Roblox</button>
-                <button class="filter-btn" data-filter="Apple Gift Card">Apple Gift Cards</button>
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-gamepad"></i> All Games
+                </button>
+                <button class="filter-btn" data-filter="Free Fire">
+                    <i class="fas fa-fire"></i> Free Fire
+                </button>
+                <button class="filter-btn" data-filter="PUBG">
+                    <i class="fas fa-crosshairs"></i> PUBG
+                </button>
+                <button class="filter-btn" data-filter="Blood Strike">
+                    <i class="fas fa-skull-crossbones"></i> Blood Strike
+                </button>
+                <button class="filter-btn" data-filter="Roblox">
+                    <i class="fas fa-cube"></i> Roblox
+                </button>
+                <button class="filter-btn" data-filter="Apple Gift Card">
+                    <i class="fab fa-apple"></i> Apple Gift Cards
+                </button>
             </div>
 
             <div class="price-grid" id="priceDisplay">
@@ -1054,10 +1679,8 @@
 
         <!-- WhatsApp Groups Section -->
         <section class="whatsapp-groups">
-            <h3><i class="fab fa-whatsapp"></i> Join Our WhatsApp Groups</h3>
-            <p style="color: var(--gray); text-align: center; max-width: 700px; margin: 0 auto;">
-                Connect with other players, get exclusive deals, and receive updates about new offers in our dedicated game communities.
-            </p>
+            <h3><i class="fab fa-whatsapp"></i> Join Our Gaming Community</h3>
+            <p>Connect with other players, get exclusive deals, and receive updates about new offers in our dedicated game communities.</p>
             
             <div class="group-grid">
                 <div class="group-card">
@@ -1066,8 +1689,7 @@
                     </div>
                     <h4>Blood Strike Group</h4>
                     <p>Join our Blood Strike community for tips, events, and exclusive offers</p>
-                    <a href="https://chat.whatsapp.com/L13nMADXCjh9epO5C32pmA" target="_blank" 
-                       style="background: #25D366; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600;">
+                    <a href="https://chat.whatsapp.com/L13nMADXCjh9epO5C32pmA" target="_blank">
                         <i class="fab fa-whatsapp"></i> Join Group
                     </a>
                 </div>
@@ -1078,8 +1700,7 @@
                     </div>
                     <h4>Roblox Group</h4>
                     <p>Connect with Roblox players, share creations, and get Robux deals</p>
-                    <a href="https://chat.whatsapp.com/JwKjY3DJH0RFWGwKC2Cjte" target="_blank" 
-                       style="background: #25D366; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600;">
+                    <a href="https://chat.whatsapp.com/JwKjY3DJH0RFWGwKC2Cjte" target="_blank">
                         <i class="fab fa-whatsapp"></i> Join Group
                     </a>
                 </div>
@@ -1090,8 +1711,7 @@
                     </div>
                     <h4>Free Fire Group</h4>
                     <p>Free Fire players community for tournaments, tips, and diamond deals</p>
-                    <a href="https://chat.whatsapp.com/DFecMvt2qZwENXvF8MZxM0" target="_blank" 
-                       style="background: #25D366; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600;">
+                    <a href="https://chat.whatsapp.com/DFecMvt2qZwENXvF8MZxM0" target="_blank">
                         <i class="fab fa-whatsapp"></i> Join Group
                     </a>
                 </div>
@@ -1100,8 +1720,8 @@
 
         <!-- Professional Checkout Section -->
         <section class="checkout-container" id="checkoutSection" style="display: none;">
-            <h1 style="font-size: 2.5rem; color: var(--light); margin-bottom: 40px; text-align: center;">
-                Complete Your Order
+            <h1 style="font-family: 'Orbitron', sans-serif; font-size: 2.8rem; color: var(--light); margin-bottom: 50px; text-align: center; background: linear-gradient(90deg, var(--primary), var(--neon-blue)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                COMPLETE YOUR ORDER
             </h1>
 
             <!-- Checkout Steps -->
@@ -1136,7 +1756,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label">
-                                    First Name <span class="required">*</span>
+                                    <i class="fas fa-user"></i> First Name <span class="required">*</span>
                                 </label>
                                 <input type="text" class="form-input" id="firstName" placeholder="Your first name" required>
                                 <div class="form-hint">
@@ -1146,7 +1766,7 @@
                             
                             <div class="form-group">
                                 <label class="form-label">
-                                    Last Name <span class="required">*</span>
+                                    <i class="fas fa-user"></i> Last Name <span class="required">*</span>
                                 </label>
                                 <input type="text" class="form-input" id="lastName" placeholder="Your last name" required>
                                 <div class="form-hint">
@@ -1157,7 +1777,7 @@
                         
                         <div class="form-group">
                             <label class="form-label">
-                                Email Address
+                                <i class="fas fa-envelope"></i> Email Address
                             </label>
                             <input type="email" class="form-input" id="email" placeholder="your.email@example.com (optional)">
                             <div class="form-hint">
@@ -1167,7 +1787,7 @@
                         
                         <div class="form-group">
                             <label class="form-label">
-                                WhatsApp Number <span class="required">*</span>
+                                <i class="fab fa-whatsapp"></i> WhatsApp Number <span class="required">*</span>
                             </label>
                             <input type="tel" class="form-input" id="phone" placeholder="+220 678 7259" required>
                             <div class="form-hint">
@@ -1182,7 +1802,7 @@
                             <i class="fas fa-gamepad"></i> Game Details
                         </h2>
                         
-                        <div class="form-hint region-hint" id="regionHint" style="display: none;">
+                        <div class="form-hint region-hint" id="regionHint" style="display: none; background: rgba(255, 179, 0, 0.1); border-left: 3px solid var(--warning); padding: 16px; border-radius: 10px; margin-top: 20px;">
                             <i class="fas fa-exclamation-triangle"></i> 
                             <strong>Region Selection Required:</strong> Please select your game server region. This is required for all non-Apple items.
                         </div>
@@ -1190,7 +1810,7 @@
                         <div id="gameDetailsSection">
                             <div class="form-group">
                                 <label class="form-label">
-                                    Game UID/ID <span class="required" id="uidRequired">*</span>
+                                    <i class="fas fa-key"></i> Game UID/ID <span class="required" id="uidRequired">*</span>
                                 </label>
                                 <input type="text" class="form-input" id="gameUID" placeholder="Enter your game ID (numbers only)">
                                 <div class="form-hint">
@@ -1200,7 +1820,7 @@
                             
                             <div class="form-group">
                                 <label class="form-label">
-                                    Server Region <span class="required region-required" id="regionRequired">*</span>
+                                    <i class="fas fa-globe"></i> Server Region <span class="required region-required" id="regionRequired">*</span>
                                 </label>
                                 <select class="form-input" id="gameRegion">
                                     <option value="">SELECT YOUR REGION (Required for non-Apple items)</option>
@@ -1216,11 +1836,11 @@
                             </div>
                         </div>
                         
-                        <div id="appleInstructions" style="display: none; background: rgba(255,179,0,0.05); border-left: 3px solid var(--warning); padding: 16px; border-radius: 8px; margin-top: 20px;">
-                            <h3 style="color: var(--warning); margin-bottom: 12px; font-size: 1rem;">
+                        <div id="appleInstructions" style="display: none; background: rgba(255,179,0,0.1); border-left: 3px solid var(--warning); padding: 20px; border-radius: 12px; margin-top: 25px;">
+                            <h3 style="color: var(--warning); margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
                                 <i class="fas fa-exclamation-circle"></i> Apple Gift Card Instructions
                             </h3>
-                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5;">
+                            <p style="color: var(--gray); font-size: 0.95rem; line-height: 1.6;">
                                 Apple Gift Cards require a US Apple ID. We'll send detailed setup instructions to your email after purchase. No game UID needed for gift cards.
                             </p>
                         </div>
@@ -1234,7 +1854,7 @@
                         
                         <div class="form-group">
                             <label class="form-label">
-                                Select Payment Method <span class="required">*</span>
+                                <i class="fas fa-wallet"></i> Select Payment Method <span class="required">*</span>
                             </label>
                             <div class="payment-methods">
                                 <div class="payment-method" data-method="wave">
@@ -1260,7 +1880,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Additional Notes (Optional)</label>
+                            <label class="form-label"><i class="fas fa-sticky-note"></i> Additional Notes (Optional)</label>
                             <textarea class="form-input" id="orderNotes" rows="3" placeholder="Any special instructions or requests for your order..."></textarea>
                             <div class="form-hint">
                                 <i class="fas fa-sticky-note"></i> Delivery time preferences or other requests
@@ -1274,21 +1894,21 @@
                             <i class="fas fa-check-circle"></i> Order Confirmation
                         </h2>
                         
-                        <div style="text-align: center; padding: 40px 20px;">
-                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 2rem; color: var(--darker);">
+                        <div style="text-align: center; padding: 50px 20px;">
+                            <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; font-size: 2.5rem; color: var(--darker); box-shadow: 0 20px 40px rgba(0, 255, 157, 0.4);">
                                 <i class="fas fa-check"></i>
                             </div>
-                            <h3 style="color: var(--light); margin-bottom: 16px; font-size: 1.5rem;">
+                            <h3 style="color: var(--light); margin-bottom: 20px; font-size: 1.8rem; font-family: 'Orbitron', sans-serif;">
                                 Ready to Complete Your Order!
                             </h3>
-                            <p style="color: var(--gray); margin-bottom: 32px;">
+                            <p style="color: var(--gray); margin-bottom: 40px; font-size: 1.1rem;">
                                 Review your order details on the right. Once confirmed, you'll receive payment instructions via WhatsApp.
                             </p>
-                            <div style="background: rgba(0, 255, 136, 0.05); padding: 16px; border-radius: 10px; border: 1px solid rgba(0, 255, 136, 0.2);">
-                                <p style="color: var(--primary); font-weight: 600; margin-bottom: 8px;">
+                            <div style="background: rgba(0, 255, 157, 0.1); padding: 20px; border-radius: 15px; border: 1px solid rgba(0, 255, 157, 0.3); backdrop-filter: blur(10px);">
+                                <p style="color: var(--primary); font-weight: 800; margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
                                     <i class="fas fa-shield-alt"></i> 100% Secure Transaction
                                 </p>
-                                <p style="color: var(--gray); font-size: 0.9rem;">
+                                <p style="color: var(--gray); font-size: 0.95rem;">
                                     Your payment information is protected and will never be stored on our servers.
                                 </p>
                             </div>
@@ -1308,13 +1928,14 @@
 
                 <!-- Right Column: Order Summary -->
                 <div class="order-summary-container">
-                    <h2 style="color: var(--light); font-size: 1.5rem; margin-bottom: 24px;">
+                    <h2 class="order-summary-title">
                         <i class="fas fa-shopping-cart"></i> Order Summary
                     </h2>
                     
                     <div class="order-items" id="orderItems">
                         <!-- Order items will be dynamically added here -->
-                        <p style="color: var(--gray); text-align: center; padding: 20px;">
+                        <p style="color: var(--gray); text-align: center; padding: 40px 20px; font-size: 1.1rem;">
+                            <i class="fas fa-shopping-bag" style="font-size: 2rem; margin-bottom: 15px; color: var(--gray); display: block;"></i>
                             No items in cart
                         </p>
                     </div>
@@ -1324,21 +1945,21 @@
                         <div class="total-amount" id="orderTotal">D0</div>
                     </div>
                     
-                    <div style="background: rgba(0, 255, 136, 0.05); padding: 16px; border-radius: 10px; margin: 20px 0;">
-                        <p style="color: var(--primary); font-weight: 600; margin-bottom: 8px;">
+                    <div style="background: rgba(0, 255, 157, 0.1); padding: 20px; border-radius: 15px; margin: 25px 0; border: 1px solid rgba(0, 255, 157, 0.3);">
+                        <p style="color: var(--primary); font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
                             <i class="fas fa-bolt"></i> Instant Delivery
                         </p>
-                        <p style="color: var(--gray); font-size: 0.9rem;">
+                        <p style="color: var(--gray); font-size: 0.95rem;">
                             Most top-ups are delivered within 5-15 minutes after payment confirmation.
                         </p>
                     </div>
                     
-                    <div style="background: rgba(0, 153, 255, 0.05); padding: 16px; border-radius: 10px;">
-                        <p style="color: var(--secondary); font-weight: 600; margin-bottom: 8px;">
+                    <div style="background: rgba(0, 153, 255, 0.1); padding: 20px; border-radius: 15px; border: 1px solid rgba(0, 153, 255, 0.3);">
+                        <p style="color: var(--secondary); font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
                             <i class="fas fa-headset"></i> 24/7 Support
                         </p>
-                        <p style="color: var(--gray); font-size: 0.9rem;">
-                            Need help? WhatsApp us anytime at <strong>+220 678 7259</strong>
+                        <p style="color: var(--gray); font-size: 0.95rem;">
+                            Need help? WhatsApp us anytime at <strong style="color: var(--light);">+220 678 7259</strong>
                         </p>
                     </div>
                 </div>
@@ -1347,12 +1968,12 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="cyber-footer">
         <div class="container">
             <div class="footer-container">
                 <div class="footer-section">
-                    <h3>ANONYMOUS GAMING TOP-UPS</h3>
-                    <p style="color: var(--gray); margin-bottom: 1.5rem; line-height: 1.6;">
+                    <h3>ANONYMOUS GAMING</h3>
+                    <p style="color: var(--gray); margin-bottom: 1.8rem; line-height: 1.6;">
                         Your trusted source for premium gaming top-ups and gift cards. 
                         Instant delivery, best prices, and 24/7 customer support.
                     </p>
@@ -1367,7 +1988,7 @@
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Contact Information</h3>
+                    <h3>Contact Info</h3>
                     <div class="footer-links">
                         <a href="https://wa.me/2206787259" target="_blank">
                             <i class="fab fa-whatsapp"></i> WhatsApp: +220 678 7259
@@ -1398,15 +2019,15 @@
                 
                 <div class="footer-section">
                     <h3>Payment Methods</h3>
-                    <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.5rem;">
-                        <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 6px; color: var(--gray); font-size: 0.9rem;">
-                            wave
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 0.5rem;">
+                        <span style="background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; color: var(--gray); font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-wave-square" style="color: var(--primary);"></i> wave
                         </span>
-                        <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 6px; color: var(--gray); font-size: 0.9rem;">
-                            APS Wallet
+                        <span style="background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; color: var(--gray); font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-wallet" style="color: var(--primary);"></i> APS Wallet
                         </span>
-                        <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 6px; color: var(--gray); font-size: 0.9rem;">
-                            Comcach
+                        <span style="background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; color: var(--gray); font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-mobile-alt" style="color: var(--primary);"></i> Comcach
                         </span>
                     </div>
                 </div>
@@ -1414,7 +2035,7 @@
             
             <div class="copyright">
                 <p>&copy; 2025 ANONYMOUS GAMING TOP-UPS. All rights reserved.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;">All game content and trademarks are property of their respective owners.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--gray);">All game content and trademarks are property of their respective owners.</p>
             </div>
         </div>
     </footer>
@@ -1430,22 +2051,22 @@
                 Please send your payment to complete the order. You'll be redirected to WhatsApp with your order details.
             </p>
             
-            <div style="background: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 10px; margin: 24px 0;">
-                <p style="color: var(--light); margin-bottom: 12px; font-weight: 600;">
+            <div style="background: rgba(0, 0, 0, 0.3); padding: 25px; border-radius: 15px; margin: 30px 0; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                <p style="color: var(--light); margin-bottom: 20px; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
                     <i class="fas fa-qrcode"></i> Payment Details
                 </p>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <span style="color: var(--gray);">Amount:</span>
-                    <span style="color: var(--primary); font-weight: 600;" id="paymentAmount">D0</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                    <span style="color: var(--gray); font-weight: 500;">Amount:</span>
+                    <span style="color: var(--primary); font-weight: 800; font-size: 1.3rem; font-family: 'Orbitron', sans-serif;" id="paymentAmount">D0</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <span style="color: var(--gray);">Method:</span>
-                    <span style="color: var(--light); font-weight: 600;" id="paymentMethodDisplay">—</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <span style="color: var(--gray); font-weight: 500;">Method:</span>
+                    <span style="color: var(--light); font-weight: 700; font-size: 1.1rem;" id="paymentMethodDisplay">—</span>
                 </div>
-                <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                    <span style="color: var(--gray); font-size: 0.9rem;">Send payment to:</span>
-                    <p style="color: var(--light); font-weight: 600; font-size: 1.1rem; margin-top: 4px;">
-                        <i class="fab fa-whatsapp"></i> +220 678 7259
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <span style="color: var(--gray); font-size: 0.9rem; font-weight: 500;">Send payment to:</span>
+                    <p style="color: var(--light); font-weight: 800; font-size: 1.3rem; margin-top: 10px; display: flex; align-items: center; gap: 15px;">
+                        <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.5rem;"></i> +220 678 7259
                     </p>
                 </div>
             </div>
@@ -1467,11 +2088,11 @@
     </div>
 
     <!-- Floating Cart Button -->
-    <div id="floatingCart" style="position: fixed; bottom: 32px; right: 32px; z-index: 100; display: none;">
-        <button style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--darker); padding: 16px 32px; border-radius: 50px; border: none; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 10px 30px rgba(0,255,136,0.3); display: flex; align-items: center; gap: 12px;" onclick="startCheckout()">
+    <div id="floatingCart">
+        <button onclick="startCheckout()">
             <i class="fas fa-shopping-cart"></i>
             <span>Checkout</span>
-            <span style="background: var(--darker); color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.9rem;" id="cartCount">0</span>
+            <span id="cartCount">0</span>
         </button>
     </div>
 
@@ -1899,7 +2520,12 @@
             updateOrderSummary();
             setupEventListeners();
             setupFilterButtons();
+            showLoading(false);
         });
+
+        function showLoading(show) {
+            document.getElementById('loader').classList.toggle('active', show);
+        }
 
         // Setup filter buttons
         function setupFilterButtons() {
@@ -1984,6 +2610,13 @@
             saveCart();
             updateOrderSummary();
             showNotification(`${item.item} added to cart!`, 'success');
+            
+            // Animate the cart button
+            const cartBtn = document.querySelector('#floatingCart button');
+            cartBtn.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                cartBtn.style.transform = '';
+            }, 200);
         }
 
         function removeFromCart(itemId) {
@@ -2042,7 +2675,7 @@
             const totalElement = document.getElementById('orderTotal');
             
             if (cart.length === 0) {
-                container.innerHTML = '<p style="color: var(--gray); text-align: center; padding: 20px;">No items in cart</p>';
+                container.innerHTML = '<p style="color: var(--gray); text-align: center; padding: 40px 20px; font-size: 1.1rem;"><i class="fas fa-shopping-bag" style="font-size: 2rem; margin-bottom: 15px; color: var(--gray); display: block;"></i>No items in cart</p>';
                 totalElement.textContent = 'D0';
                 updateCartCount();
                 return;
@@ -2058,20 +2691,16 @@
                 const itemElement = document.createElement('div');
                 itemElement.className = 'order-item';
                 itemElement.innerHTML = `
-                    <div>
+                    <div class="item-info">
                         <div class="item-name">${item.item}</div>
                         <div class="item-game">${item.game}</div>
-                        <div class="item-quantity">Qty: ${item.quantity}</div>
-                    </div>
-                    <div>
-                        <div class="item-price">D${itemTotal}</div>
-                        <div style="display: flex; gap: 8px; margin-top: 8px;">
-                            <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})" 
-                                    style="background: none; border: 1px solid var(--gray); color: var(--gray); width: 24px; height: 24px; border-radius: 4px; cursor: pointer;">-</button>
-                            <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})" 
-                                    style="background: none; border: 1px solid var(--primary); color: var(--primary); width: 24px; height: 24px; border-radius: 4px; cursor: pointer;">+</button>
+                        <div class="item-controls">
+                            <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                            <div class="item-quantity">${item.quantity}</div>
+                            <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
                         </div>
                     </div>
+                    <div class="item-price">D${itemTotal}</div>
                 `;
                 container.appendChild(itemElement);
             });
@@ -2080,9 +2709,9 @@
             
             // Add clear cart button
             const clearButton = document.createElement('div');
-            clearButton.style.marginTop = '16px';
+            clearButton.style.marginTop = '25px';
             clearButton.innerHTML = `
-                <button onclick="clearCart()" style="width: 100%; padding: 12px; background: rgba(255, 42, 109, 0.1); color: var(--error); border: 1px solid var(--error); border-radius: 8px; cursor: pointer; font-weight: 600;">
+                <button onclick="clearCart()" style="width: 100%; padding: 15px; background: rgba(255, 42, 109, 0.1); color: var(--error); border: 2px solid var(--error); border-radius: 10px; cursor: pointer; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px;">
                     <i class="fas fa-trash"></i> Clear Cart
                 </button>
             `;
@@ -2367,6 +2996,8 @@
         }
 
         function completeOrder() {
+            showLoading(true);
+            
             // Get form data
             const orderData = {
                 customer: {
@@ -2448,6 +3079,7 @@
                     document.querySelector('.whatsapp-groups').style.display = 'block';
                     document.getElementById('checkoutSection').style.display = 'none';
                     showNotification('WhatsApp should open with your order details. If not, please message +220 678 7259 manually.', 'success');
+                    showLoading(false);
                 }, 1000);
             }, 1500);
         }

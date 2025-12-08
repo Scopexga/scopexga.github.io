@@ -33,6 +33,7 @@
             background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
             color: var(--light);
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .container {
@@ -959,6 +960,47 @@
         .form-hint.region-hint i {
             color: var(--warning);
         }
+
+        /* Game Filters Section */
+        .game-filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            color: var(--gray);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            border-color: transparent;
+        }
+
+        /* Floating Cart Button */
+        #floatingCart {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 100;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -1425,7 +1467,7 @@
     </div>
 
     <!-- Floating Cart Button -->
-    <div id="floatingCart" style="position: fixed; bottom: 32px; right: 32px; z-index: 100;">
+    <div id="floatingCart" style="position: fixed; bottom: 32px; right: 32px; z-index: 100; display: none;">
         <button style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--darker); padding: 16px 32px; border-radius: 50px; border: none; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 10px 30px rgba(0,255,136,0.3); display: flex; align-items: center; gap: 12px;" onclick="startCheckout()">
             <i class="fas fa-shopping-cart"></i>
             <span>Checkout</span>
@@ -1847,6 +1889,9 @@
         let cart = JSON.parse(localStorage.getItem('anonymousCart')) || [];
         let currentStep = 1;
         let currentFilter = 'all';
+        
+        // Your WhatsApp number for receiving orders (CHANGE THIS TO YOUR NUMBER)
+        const YOUR_WHATSAPP_NUMBER = "2206787259"; // Replace with your actual WhatsApp number
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
@@ -2244,13 +2289,14 @@
             
             // Update modal content
             document.getElementById('paymentAmount').textContent = `D${total}`;
-            document.getElementById('paymentMethodDisplay').textContent = 
-                document.getElementById('paymentMethod').value.toUpperCase();
+            const selectedMethod = document.getElementById('paymentMethod').value;
+            document.getElementById('paymentMethodDisplay').textContent = selectedMethod ? selectedMethod.toUpperCase() : '—';
             
             // Show modal
             document.getElementById('confirmationModal').classList.add('active');
         }
 
+        // FIXED: WhatsApp Message Function - Now sends to YOUR number
         function completeOrder() {
             // Get form data
             const orderData = {
@@ -2271,22 +2317,24 @@
                 items: cart,
                 total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
                 orderId: 'ORD-' + Date.now().toString().slice(-8),
-                date: new Date().toISOString()
+                date: new Date().toLocaleString()
             };
             
-            // Build WhatsApp message
-            const message = buildWhatsAppMessage(orderData);
+            // Build WhatsApp message for YOU (the seller)
+            const message = buildSellerWhatsAppMessage(orderData);
             
             // Close modal
             document.getElementById('confirmationModal').classList.remove('active');
             
             // Show loading
-            showNotification('Preparing your order...', 'success');
+            showNotification('Preparing order details...', 'success');
             
-            // After 1.5 seconds, open WhatsApp
+            // After 1.5 seconds, open WhatsApp with the order details for YOU
             setTimeout(() => {
-                const whatsappNumber = "2206787259";
-                const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                // Create WhatsApp URL with your number
+                const whatsappURL = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+                
+                // Open WhatsApp in new tab for YOU to receive the order
                 window.open(whatsappURL, '_blank');
                 
                 // Clear cart and reset
@@ -2305,68 +2353,68 @@
                     document.querySelector('.container > section:first-of-type').style.display = 'block';
                     document.querySelector('.whatsapp-groups').style.display = 'block';
                     document.getElementById('checkoutSection').style.display = 'none';
-                    showNotification('Order completed successfully! Check WhatsApp for confirmation.', 'success');
+                    showNotification('Order completed! You should receive the order on WhatsApp.', 'success');
                 }, 1000);
             }, 1500);
         }
 
-        function buildWhatsAppMessage(order) {
+        // FIXED: Build WhatsApp message for YOU (the seller)
+        function buildSellerWhatsAppMessage(order) {
             const hasAppleCards = order.items.some(item => item.game === 'Apple Gift Card');
             
-            let message = `📦 NEW ORDER - ANONYMOUS GAMING TOP-UPS\n`;
-            message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+            let message = `🛒 NEW ORDER RECEIVED - ANONYMOUS GAMING\n`;
+            message += `══════════════════════════════════════════════════════════\n\n`;
             
-            message += `👤 CUSTOMER INFORMATION\n`;
-            message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
+            message += `📋 ORDER SUMMARY\n`;
+            message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            message += `• Order ID: ${order.orderId}\n`;
+            message += `• Date/Time: ${order.date}\n`;
+            message += `• Total Amount: D${order.total} GMD\n\n`;
+            
+            message += `👤 CUSTOMER DETAILS\n`;
+            message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
             message += `• Name: ${order.customer.firstName} ${order.customer.lastName}\n`;
-            message += `• Phone: ${order.customer.phone}\n`;
+            message += `• WhatsApp: ${order.customer.phone}\n`;
             if (order.customer.email) {
                 message += `• Email: ${order.customer.email}\n`;
             }
-            message += `• Order Date: ${new Date(order.date).toLocaleDateString()}\n`;
-            message += `• Order ID: ${order.orderId}\n\n`;
             
-            if (order.gameDetails.uid) {
-                message += `🎮 GAME DETAILS\n`;
-                message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
+            if (order.gameDetails.uid && order.gameDetails.region) {
                 message += `• Game UID: ${order.gameDetails.uid}\n`;
-                message += `• Region: ${order.gameDetails.region}\n\n`;
+                message += `• Game Region: ${order.gameDetails.region}\n`;
             }
+            message += `\n`;
             
-            message += `💳 PAYMENT METHOD\n`;
-            message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
-            message += `• Method: ${order.payment.method.toUpperCase()}\n\n`;
-            
-            message += `🛒 ORDER ITEMS\n`;
-            message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
+            message += `🛍️ ORDER ITEMS\n`;
+            message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
             order.items.forEach((item, index) => {
                 const itemTotal = item.price * item.quantity;
                 message += `${index + 1}. ${item.item}\n`;
-                message += `   Game: ${item.game}\n`;
-                message += `   Qty: ${item.quantity} × D${item.price} = D${itemTotal}\n\n`;
+                message += `   🎮 Game: ${item.game}\n`;
+                message += `   📦 Quantity: ${item.quantity}\n`;
+                message += `   💰 Price: D${item.price} × ${item.quantity} = D${itemTotal}\n`;
+                message += `\n`;
             });
             
-            message += `💰 ORDER SUMMARY\n`;
-            message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
-            message += `• Total Amount: D${order.total}\n`;
-            message += `• Order ID: ${order.orderId}\n\n`;
+            message += `💰 PAYMENT INFORMATION\n`;
+            message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            message += `• Payment Method: ${order.payment.method.toUpperCase()}\n`;
+            message += `• Total to Collect: D${order.total} GMD\n`;
+            message += `• Status: PENDING PAYMENT\n\n`;
             
             if (order.notes) {
                 message += `📝 CUSTOMER NOTES\n`;
-                message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
+                message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
                 message += `${order.notes}\n\n`;
             }
             
-            if (hasAppleCards) {
-                message += `🍎 APPLE GIFT CARD INSTRUCTIONS\n`;
-                message += `━━━━━━━━━━━━━━━━━━━━━━\n`;
-                message += `• Customer will receive setup instructions via email\n`;
-                message += `• US Apple ID required for redemption\n`;
-                message += `• Delivery within 24 hours\n\n`;
-            }
+            message += `⚡ ACTION REQUIRED:\n`;
+            message += `1. Contact customer at ${order.customer.phone}\n`;
+            message += `2. Confirm payment method: ${order.payment.method}\n`;
+            message += `3. Process the order after payment\n`;
+            message += `4. Deliver items to customer\n\n`;
             
-            message += `✅ Ready for payment via ${order.payment.method.toUpperCase()}\n`;
-            message += `📱 Send payment to: +220 678 7259`;
+            message += `🔔 Order created via ANONYMOUS GAMING Website`;
             
             return message;
         }

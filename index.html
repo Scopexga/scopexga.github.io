@@ -2,1002 +2,2081 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ANONYMOUS GAMING TOP-UPS</title>
-    <meta name="description" content="Instant game top-ups: Free Fire, PUBG, Blood Strike, Roblox & Apple Gift Cards. 24/7 Delivery.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANONYMOUS GAMING TOP-UPS | Premium Game Top-Ups & Gift Cards</title>
+    <meta name="description" content="ANONYMOUS Gaming Top-Ups - Premium game top-ups, diamonds, UC, Robux & Apple gift cards. Instant delivery 24/7. Best prices for Free Fire, PUBG, Blood Strike, Roblox.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
-            --primary: #25D366;
-            --secondary: #128C7E;
-            --accent: #FF6B00;
-            --dark: #121212;
-            --card: #1E1E1E;
-            --light: #FFFFFF;
-            --gray: #AAAAAA;
-            --success: #25D366;
-            --error: #FF3B30;
-            --border: #2D2D2D;
+            --primary: #00ff9d;
+            --primary-dark: #00cc7d;
+            --secondary: #7b61ff;
+            --accent: #ff2a6d;
+            --dark: #0a0a14;
+            --darker: #05050a;
+            --card: #12121f;
+            --light: #ffffff;
+            --gray: #a0a0c0;
+            --success: #00ff9d;
+            --warning: #ffb300;
+            --error: #ff2a6d;
+            --neon-blue: #00f7ff;
+            --neon-purple: #b967ff;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--dark);
+            background: linear-gradient(135deg, var(--darker) 0%, #0d0d1a 50%, var(--dark) 100%);
             color: var(--light);
-            line-height: 1.5;
-            padding-bottom: 80px;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Header */
-        .mobile-header {
-            background: var(--card);
-            padding: 15px 20px;
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(123, 97, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 157, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 42, 109, 0.08) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 157, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 157, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animated Header */
+        .cyber-header {
+            background: rgba(10, 10, 20, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)) 1;
+            box-shadow: 0 10px 40px rgba(0, 255, 157, 0.1);
             position: sticky;
             top: 0;
-            z-index: 100;
-            border-bottom: 2px solid var(--primary);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            padding: 1.2rem 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 1.2rem;
             text-decoration: none;
+            position: relative;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0.2;
+            filter: blur(10px);
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 8px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--darker);
+            box-shadow: 0 5px 20px rgba(0, 255, 157, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
         }
 
         .logo-text h1 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--light);
-            line-height: 1.2;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
         }
 
         .logo-text span {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             color: var(--gray);
-            display: block;
+            letter-spacing: 1.5px;
+            font-weight: 500;
         }
 
-        /* WhatsApp Button */
-        .whatsapp-btn {
+        .header-actions {
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            gap: 2rem;
         }
 
-        /* Main Container */
-        .container {
-            padding: 20px;
-            max-width: 100%;
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(123, 97, 255, 0.1));
+            border: 1px solid rgba(0, 255, 157, 0.2);
+            border-radius: 10px;
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .contact-btn:hover::before {
+            left: 100%;
+        }
+
+        .contact-btn:hover {
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.2), rgba(123, 97, 255, 0.2));
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.2);
+        }
+
+        .contact-btn i {
+            color: var(--primary);
+            font-size: 1.2rem;
         }
 
         /* Hero Section */
         .hero {
+            padding: 6rem 0 4rem;
             text-align: center;
-            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 157, 0.1) 0%, transparent 70%);
+            z-index: -1;
         }
 
         .hero h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--light);
-            line-height: 1.3;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            text-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
         }
 
         .hero p {
             color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
         }
 
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
         }
 
-        .stat-item {
-            background: var(--card);
-            padding: 15px;
-            border-radius: 12px;
+        .stat {
             text-align: center;
-            border: 1px solid var(--border);
         }
 
-        .stat-value {
-            font-size: 1.5rem;
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
         }
 
         .stat-label {
-            font-size: 0.8rem;
             color: var(--gray);
-        }
-
-        /* Game Tabs */
-        .game-tabs {
-            display: flex;
-            overflow-x: auto;
-            gap: 10px;
-            margin-bottom: 25px;
-            padding-bottom: 5px;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-
-        .game-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .game-tab {
-            flex: 0 0 auto;
-            padding: 12px 20px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 25px;
-            color: var(--gray);
-            font-weight: 600;
             font-size: 0.9rem;
-            white-space: nowrap;
-            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .game-tab.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Price Cards */
+        /* Enhanced Price Cards */
         .price-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 4rem 0;
         }
 
         .price-card {
-            background: var(--card);
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid var(--border);
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.8), rgba(10, 10, 20, 0.9));
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
             position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
 
-        .price-card.featured {
-            border: 2px solid var(--primary);
-            background: linear-gradient(145deg, var(--card), rgba(37, 211, 102, 0.1));
-        }
-
-        .price-badge {
+        .price-card::before {
+            content: '';
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--accent);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .price-header {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .price-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--light);
-            margin-bottom: 5px;
-        }
-
-        .price-game {
-            font-size: 0.85rem;
-            color: var(--gray);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .price-value {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 15px 0;
-        }
-
-        .price-features {
-            list-style: none;
-            margin: 15px 0;
-        }
-
-        .price-features li {
-            color: var(--gray);
-            font-size: 0.85rem;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .price-features li i {
-            color: var(--primary);
-            font-size: 0.8rem;
-        }
-
-        .add-to-cart {
-            width: 100%;
-            padding: 14px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-
-        .add-to-cart:hover {
-            background: var(--secondary);
-        }
-
-        /* Cart Summary */
-        .cart-summary {
-            position: fixed;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            background: var(--card);
-            padding: 15px 20px;
-            border-top: 2px solid var(--primary);
-            z-index: 100;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .cart-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .cart-total {
-            font-weight: 600;
-            color: var(--light);
-        }
-
-        .cart-amount {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .cart-count {
-            background: var(--primary);
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            padding: 16px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        .checkout-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* Checkout Modal */
-        .checkout-modal {
-            position: fixed;
+        .price-card::after {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            display: none;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .checkout-modal.active {
-            display: block;
+        .price-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(0, 255, 157, 0.1),
+                0 0 30px rgba(0, 255, 157, 0.1);
         }
 
-        .checkout-content {
-            background: var(--card);
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
+        .price-card:hover::before,
+        .price-card:hover::after {
+            opacity: 1;
         }
 
-        .close-checkout {
+        .price-card.featured {
+            border: 2px solid var(--primary);
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.9), rgba(0, 255, 157, 0.05));
+        }
+
+        .price-card.featured::before {
+            opacity: 1;
+        }
+
+        .price-badge {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: none;
-            border: none;
-            color: var(--gray);
-            font-size: 1.5rem;
-            cursor: pointer;
+            background: linear-gradient(135deg, var(--accent), #ff5500);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(255, 42, 109, 0.3);
+            z-index: 2;
         }
 
-        .checkout-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-top: 40px;
+        .price-header {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
 
-        .checkout-header h2 {
-            font-size: 1.5rem;
+        .price-name {
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--light);
             margin-bottom: 10px;
+            line-height: 1.4;
         }
 
-        .checkout-header p {
-            color: var(--gray);
+        .price-game {
             font-size: 0.9rem;
-        }
-
-        /* Form Elements */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            color: var(--light);
-            font-weight: 500;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .form-label .required {
-            color: var(--error);
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 16px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--light);
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .form-hint {
-            font-size: 0.8rem;
             color: var(--gray);
-            margin-top: 5px;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+        }
+
+        .price-game i {
+            font-size: 1.1rem;
+        }
+
+        .price-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin: 25px 0;
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+        }
+
+        .price-currency {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 500;
+            margin-left: 5px;
+        }
+
+        .price-per-unit {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .price-per-unit i {
+            color: var(--success);
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .price-features li {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+
+        .price-features li i {
+            color: var(--primary);
+            font-size: 0.9rem;
+            width: 20px;
+        }
+
+        .price-action {
+            margin-top: 30px;
+        }
+
+        .price-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .price-btn:hover::before {
+            left: 100%;
+        }
+
+        .price-btn.primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+        }
+
+        .price-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.4);
+        }
+
+        .price-btn.secondary {
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(123, 97, 255, 0.1));
+            color: var(--primary);
+            border: 1px solid rgba(0, 255, 157, 0.3);
+        }
+
+        .price-btn.secondary:hover {
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.2), rgba(123, 97, 255, 0.2));
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.2);
+        }
+
+        /* Game Category Filters */
+        .game-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: rgba(18, 18, 31, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            color: var(--gray);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .filter-btn:hover {
+            color: var(--light);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 157, 0.1);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            border-color: transparent;
+            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.3);
+        }
+
+        .filter-btn.active::before {
+            opacity: 1;
+        }
+
+        /* Checkout Page Redesign */
+        .checkout-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Checkout Steps */
         .checkout-steps {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             position: relative;
+            padding: 0 20px;
         }
 
-        .checkout-steps:before {
+        .checkout-steps::before {
             content: '';
             position: absolute;
-            top: 15px;
-            left: 20px;
-            right: 20px;
-            height: 2px;
-            background: var(--border);
+            top: 24px;
+            left: 50px;
+            right: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                rgba(0, 255, 157, 0.3) 0%,
+                rgba(123, 97, 255, 0.3) 50%,
+                rgba(255, 42, 109, 0.3) 100%
+            );
             z-index: 1;
         }
 
         .step {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             position: relative;
             z-index: 2;
             flex: 1;
         }
 
         .step-circle {
-            width: 30px;
-            height: 30px;
-            background: var(--border);
-            color: var(--gray);
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin: 0 auto 8px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            border: 2px solid transparent;
         }
 
         .step.active .step-circle {
-            background: var(--primary);
-            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 5px rgba(0, 255, 157, 0.2),
+                        0 10px 25px rgba(0, 255, 157, 0.3);
+            transform: scale(1.1);
         }
 
         .step-label {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             color: var(--gray);
+            text-align: center;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .step.active .step-label {
             color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Checkout Form */
+        .checkout-form-container {
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.9), rgba(10, 10, 20, 0.95));
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .checkout-section {
+            margin-bottom: 45px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--light);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+            font-size: 1.6rem;
+            background: rgba(0, 255, 157, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-label {
+            display: block;
+            color: var(--light);
             font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-label .required {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(0, 255, 157, 0.05);
+            box-shadow: 0 0 0 3px rgba(0, 255, 157, 0.1);
+        }
+
+        .form-input.error {
+            border-color: var(--error);
+            background: rgba(255, 42, 109, 0.05);
+        }
+
+        .form-hint {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .form-hint i {
+            color: var(--primary);
+            font-size: 1rem;
         }
 
         /* Payment Methods */
         .payment-methods {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .payment-method {
-            background: rgba(255,255,255,0.05);
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            padding: 15px 10px;
-            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px 15px;
             cursor: pointer;
             transition: all 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-method::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(123, 97, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.1);
+        }
+
+        .payment-method:hover::before {
+            opacity: 1;
         }
 
         .payment-method.selected {
             border-color: var(--primary);
-            background: rgba(37, 211, 102, 0.1);
+            background: rgba(0, 255, 157, 0.1);
+            box-shadow: 
+                0 0 0 2px rgba(0, 255, 157, 0.2),
+                0 10px 25px rgba(0, 255, 157, 0.2);
         }
 
         .payment-icon {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
             color: var(--primary);
-            margin-bottom: 5px;
         }
 
         .payment-name {
-            font-size: 0.8rem;
+            font-weight: 700;
             color: var(--light);
-            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
         }
 
-        /* Order Review */
-        .order-review {
-            background: rgba(255,255,255,0.05);
+        /* Order Summary */
+        .order-summary-container {
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.9), rgba(10, 10, 20, 0.95));
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            position: sticky;
+            top: 40px;
+            height: fit-content;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .order-summary-title {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .order-summary-title i {
+            color: var(--primary);
+            background: rgba(0, 255, 157, 0.1);
+            padding: 12px;
             border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
         }
 
         .order-items {
-            max-height: 200px;
+            margin: 25px 0;
+            max-height: 400px;
             overflow-y: auto;
-            margin-bottom: 15px;
+            padding-right: 10px;
+        }
+
+        .order-items::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .order-items::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .order-items::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
         }
 
         .order-item {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            align-items: center;
         }
 
         .order-item:last-child {
             border-bottom: none;
         }
 
-        .order-total {
-            display: flex;
-            justify-content: space-between;
-            padding-top: 15px;
-            border-top: 2px solid var(--border);
-            font-weight: 700;
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
             color: var(--light);
-        }
-
-        /* Action Buttons */
-        .action-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .action-btn {
-            padding: 16px;
-            border-radius: 12px;
             font-weight: 600;
-            font-size: 0.95rem;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .item-game {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .item-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .item-controls button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            border-radius: 6px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .item-controls button:hover {
+            background: var(--primary);
+            color: var(--darker);
+            border-color: var(--primary);
+        }
+
+        .item-quantity {
+            font-weight: 600;
+            color: var(--light);
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .item-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            min-width: 100px;
+            text-align: right;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            margin: 30px 0;
+        }
+
+        .total-label {
+            font-size: 1.2rem;
+            color: var(--light);
+            font-weight: 700;
+        }
+
+        .total-amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
             border: none;
-            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .action-btn:hover::before {
+            left: 100%;
         }
 
         .action-btn.primary {
-            background: var(--primary);
-            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+        }
+
+        .action-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 255, 157, 0.4);
         }
 
         .action-btn.secondary {
             background: transparent;
             color: var(--light);
-            border: 2px solid var(--border);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* WhatsApp Groups */
-        .groups-section {
-            margin: 40px 0;
-            padding: 20px;
-            background: linear-gradient(135deg, rgba(37, 211, 102, 0.05), rgba(18, 140, 126, 0.05));
-            border-radius: 15px;
-            border: 1px solid rgba(37, 211, 102, 0.2);
-        }
-
-        .groups-section h3 {
-            text-align: center;
+        .action-btn.secondary:hover {
+            border-color: var(--primary);
             color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            background: rgba(0, 255, 157, 0.05);
+            transform: translateY(-3px);
+        }
+
+        /* Confirmation Modal */
+        .confirmation-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 10, 0.95);
+            backdrop-filter: blur(20px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .confirmation-modal.active {
+            display: flex;
+        }
+
+        .confirmation-card {
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.95), rgba(10, 10, 20, 0.98));
+            border-radius: 25px;
+            padding: 50px;
+            max-width: 550px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            text-align: center;
+            animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .confirmation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .confirmation-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            color: var(--darker);
+            box-shadow: 0 20px 40px rgba(0, 255, 157, 0.4);
         }
 
-        .group-buttons {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
-
-        .group-btn {
-            background: rgba(37, 211, 102, 0.1);
-            border: 1px solid rgba(37, 211, 102, 0.3);
-            border-radius: 10px;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
+        .confirmation-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
             color: var(--light);
-            transition: all 0.3s;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--neon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .group-btn:hover {
-            background: rgba(37, 211, 102, 0.2);
-        }
-
-        .group-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .group-icon.free-fire { background: #FF6600; }
-        .group-icon.roblox { background: #0055FF; }
-        .group-icon.bloodstrike { background: #FF0040; }
-
-        .group-info h4 {
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-
-        .group-info p {
-            font-size: 0.8rem;
+        .confirmation-message {
             color: var(--gray);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-size: 1.1rem;
         }
 
         /* Notification */
         .notification {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            background: var(--card);
+            top: 40px;
+            right: 40px;
+            padding: 20px 30px;
+            background: linear-gradient(145deg, rgba(18, 18, 31, 0.95), rgba(10, 10, 20, 0.98));
             border-left: 4px solid var(--primary);
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transform: translateY(-100px);
-            transition: transform 0.3s;
-            z-index: 1001;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateX(150%);
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2001;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
         }
 
         .notification.active {
-            transform: translateY(0);
+            transform: translateX(0);
         }
 
-        /* Loading */
-        .loading {
+        .notification.success { border-color: var(--success); }
+        .notification.error { border-color: var(--error); }
+        .notification.warning { border-color: var(--warning); }
+
+        #notificationMessage {
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        /* Floating Cart Button */
+        #floatingCart {
             position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 1000;
+            display: none;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        #floatingCart button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            padding: 18px 36px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 
+                0 15px 40px rgba(0, 255, 157, 0.4),
+                0 0 0 2px rgba(0, 255, 157, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #floatingCart button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        #floatingCart button:hover::before {
+            left: 100%;
+        }
+
+        #floatingCart button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 20px 50px rgba(0, 255, 157, 0.6),
+                0 0 0 2px rgba(0, 255, 157, 0.3);
+        }
+
+        #floatingCart button i {
+            font-size: 1.3rem;
+        }
+
+        #cartCount {
+            background: var(--darker);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .price-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkout-form-container,
+            .order-summary-container {
+                padding: 25px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .notification {
+                top: 20px;
+                right: 20px;
+                left: 20px;
+                max-width: none;
+            }
+            
+            #floatingCart {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Game Category Colors */
+        .free-fire .price-game i { color: #ff6600; }
+        .pubg .price-game i { color: #ffaa00; }
+        .bloodstrike .price-game i { color: #ff0040; }
+        .roblox .price-game i { color: #0055ff; }
+        .apple .price-game i { color: #ffffff; }
+
+        .free-fire .price-card { border-top: 3px solid #ff6600; }
+        .pubg .price-card { border-top: 3px solid #ffaa00; }
+        .bloodstrike .price-card { border-top: 3px solid #ff0040; }
+        .roblox .price-card { border-top: 3px solid #0055ff; }
+        .apple .price-card { border-top: 3px solid #999999; }
+
+        /* Footer */
+        .cyber-footer {
+            background: linear-gradient(180deg, transparent, rgba(5, 5, 10, 0.8));
+            padding: 5rem 2rem 2rem;
+            margin-top: 6rem;
+            position: relative;
+        }
+
+        .cyber-footer::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.9);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1002;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%,
+                var(--primary) 50%,
+                transparent 100%
+            );
         }
 
-        .loading.active {
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.8rem;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .footer-links a i {
+            width: 20px;
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            color: var(--darker);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.3);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .copyright p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* WhatsApp Groups Section */
+        .whatsapp-groups {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.05), rgba(0, 153, 255, 0.05));
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin: 4rem 0;
+            border: 1px solid rgba(37, 211, 102, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-groups::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #25D366, #128C7E, #075E54);
+        }
+
+        .whatsapp-groups h3 {
+            color: #25D366;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .whatsapp-groups > p {
+            color: var(--gray);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .group-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .group-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .group-card:hover {
+            border-color: #25D366;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.1);
+        }
+
+        .group-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .group-icon.free-fire { background: linear-gradient(135deg, #ff6600, #ff3300); }
+        .group-icon.roblox { background: linear-gradient(135deg, #0055ff, #0033cc); }
+        .group-icon.bloodstrike { background: linear-gradient(135deg, #ff0040, #cc0033); }
+
+        .group-card h4 {
+            color: var(--light);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .group-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .group-card a {
+            background: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .group-card a:hover {
+            background: transparent;
+            border-color: #25D366;
+            color: #25D366;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
+        }
+
+        /* Loading Animation */
+        .loader {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 10, 0.95);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader.active {
             display: flex;
         }
 
-        .loader {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255,255,255,0.1);
-            border-top-color: var(--primary);
+        .loader-circle {
+            width: 80px;
+            height: 80px;
+            border: 5px solid transparent;
+            border-top: 5px solid var(--primary);
+            border-right: 5px solid var(--secondary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        /* Utility Classes */
-        .hidden {
-            display: none !important;
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
 
-        /* Responsive Adjustments */
-        @media (min-width: 768px) {
-            .container {
-                max-width: 700px;
-                margin: 0 auto;
-            }
-            
-            .price-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .group-buttons {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        ::-webkit-scrollbar-track {
+            background: rgba(10, 10, 20, 0.5);
+            border-radius: 5px;
         }
 
-        /* Game Category Colors */
-        .free-fire .price-game i { color: #FF6600; }
-        .pubg .price-game i { color: #FFAA00; }
-        .bloodstrike .price-game i { color: #FF0040; }
-        .roblox .price-game i { color: #0055FF; }
-        .apple .price-game i { color: #FFFFFF; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
 
-        .free-fire .price-card { border-left: 4px solid #FF6600; }
-        .pubg .price-card { border-left: 4px solid #FFAA00; }
-        .bloodstrike .price-card { border-left: 4px solid #FF0040; }
-        .roblox .price-card { border-left: 4px solid #0055FF; }
-        .apple .price-card { border-left: 4px solid #999999; }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
+        }
     </style>
 </head>
 <body>
-    <!-- Mobile Header -->
-    <header class="mobile-header">
-        <div class="container">
+    <!-- Background Elements -->
+    <div class="cyber-grid"></div>
+    
+    <!-- Loading Overlay -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Website Header -->
+    <header class="cyber-header">
+        <div class="header-content">
             <a href="#" class="logo">
-                <div class="logo-icon">A</div>
+                <div class="logo-icon">
+                    A
+                </div>
                 <div class="logo-text">
                     <h1>ANONYMOUS GAMING</h1>
                     <span>TOP-UPS & GIFT CARDS</span>
                 </div>
             </a>
-            <a href="https://wa.me/2206787259" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp Support
-            </a>
+            
+            <div class="header-actions">
+                <a href="https://wa.me/2206787259" target="_blank" class="contact-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+220 678 7259</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Instant Game Top-ups</h1>
-            <p>Get Free Fire Diamonds, PUBG UC, Blood Strike Gold, Robux & Apple Gift Cards. 24/7 Delivery.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>ANONYMOUS GAMING TOP-UPS</h1>
+            <p>Premium game top-ups, diamonds, UC, Robux & Apple gift cards at unbeatable prices. Instant delivery 24/7 with best-in-class support.</p>
             
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-value">5min</div>
-                    <div class="stat-label">Delivery</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">24/7</div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
                     <div class="stat-label">Support</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">100%</div>
-                    <div class="stat-label">Safe</div>
+                <div class="stat">
+                    <div class="stat-number">5min</div>
+                    <div class="stat-label">Delivery</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">500+</div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Secure</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">500+</div>
                     <div class="stat-label">Orders</div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Professional Price Display Section -->
+        <section style="padding: 40px 0;">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--light); margin-bottom: 16px; background: linear-gradient(90deg, var(--primary), var(--neon-blue)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                    PREMIUM GAME TOP-UPS
+                </h2>
+                <p style="color: var(--gray); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+                    Select from our extensive catalog of gaming currencies and gift cards
+                </p>
+            </div>
+
+            <!-- Game Filters -->
+            <div class="game-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-gamepad"></i> All Games
+                </button>
+                <button class="filter-btn" data-filter="Free Fire">
+                    <i class="fas fa-fire"></i> Free Fire
+                </button>
+                <button class="filter-btn" data-filter="PUBG">
+                    <i class="fas fa-crosshairs"></i> PUBG
+                </button>
+                <button class="filter-btn" data-filter="Blood Strike">
+                    <i class="fas fa-skull-crossbones"></i> Blood Strike
+                </button>
+                <button class="filter-btn" data-filter="Roblox">
+                    <i class="fas fa-cube"></i> Roblox
+                </button>
+                <button class="filter-btn" data-filter="Apple Gift Card">
+                    <i class="fab fa-apple"></i> Apple Gift Cards
+                </button>
+            </div>
+
+            <div class="price-grid" id="priceDisplay">
+                <!-- Prices will be dynamically loaded here -->
+            </div>
         </section>
 
-        <!-- Game Tabs -->
-        <div class="game-tabs">
-            <button class="game-tab active" data-filter="all">All Games</button>
-            <button class="game-tab" data-filter="Free Fire">Free Fire</button>
-            <button class="game-tab" data-filter="PUBG">PUBG</button>
-            <button class="game-tab" data-filter="Blood Strike">Blood Strike</button>
-            <button class="game-tab" data-filter="Roblox">Roblox</button>
-            <button class="game-tab" data-filter="Apple Gift Card">Apple Cards</button>
-        </div>
-
-        <!-- Price Cards Grid -->
-        <div class="price-grid" id="priceDisplay">
-            <!-- Prices will be loaded here -->
-        </div>
-
-        <!-- WhatsApp Groups -->
-        <section class="groups-section">
-            <h3><i class="fab fa-whatsapp"></i> Join Our Groups</h3>
-            <div class="group-buttons">
-                <a href="https://chat.whatsapp.com/L13nMADXCjh9epO5C32pmA" class="group-btn" target="_blank">
+        <!-- WhatsApp Groups Section -->
+        <section class="whatsapp-groups">
+            <h3><i class="fab fa-whatsapp"></i> Join Our Gaming Community</h3>
+            <p>Connect with other players, get exclusive deals, and receive updates about new offers in our dedicated game communities.</p>
+            
+            <div class="group-grid">
+                <div class="group-card">
                     <div class="group-icon bloodstrike">
                         <i class="fas fa-skull-crossbones"></i>
                     </div>
-                    <div class="group-info">
-                        <h4>Blood Strike</h4>
-                        <p>Community & Tips</p>
-                    </div>
-                </a>
-                <a href="https://chat.whatsapp.com/JwKjY3DJH0RFWGwKC2Cjte" class="group-btn" target="_blank">
+                    <h4>Blood Strike Group</h4>
+                    <p>Join our Blood Strike community for tips, events, and exclusive offers</p>
+                    <a href="https://chat.whatsapp.com/L13nMADXCjh9epO5C32pmA" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Join Group
+                    </a>
+                </div>
+                
+                <div class="group-card">
                     <div class="group-icon roblox">
                         <i class="fas fa-cube"></i>
                     </div>
-                    <div class="group-info">
-                        <h4>Roblox</h4>
-                        <p>Robux & Community</p>
-                    </div>
-                </a>
-                <a href="https://chat.whatsapp.com/DFecMvt2qZwENXvF8MZxM0" class="group-btn" target="_blank">
+                    <h4>Roblox Group</h4>
+                    <p>Connect with Roblox players, share creations, and get Robux deals</p>
+                    <a href="https://chat.whatsapp.com/JwKjY3DJH0RFWGwKC2Cjte" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Join Group
+                    </a>
+                </div>
+                
+                <div class="group-card">
                     <div class="group-icon free-fire">
                         <i class="fas fa-fire"></i>
                     </div>
-                    <div class="group-info">
-                        <h4>Free Fire</h4>
-                        <p>Diamonds & Tournaments</p>
-                    </div>
-                </a>
+                    <h4>Free Fire Group</h4>
+                    <p>Free Fire players community for tournaments, tips, and diamond deals</p>
+                    <a href="https://chat.whatsapp.com/DFecMvt2qZwENXvF8MZxM0" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Join Group
+                    </a>
+                </div>
             </div>
         </section>
-    </main>
 
-    <!-- Cart Summary (Fixed at Bottom) -->
-    <div class="cart-summary" id="cartSummary" style="display: none;">
-        <div class="cart-info">
-            <div class="cart-total">Total: <span class="cart-amount" id="cartTotal">D0</span></div>
-            <div class="cart-count" id="cartCount">0</div>
-        </div>
-        <button class="checkout-btn" id="checkoutBtn">
-            <i class="fas fa-shopping-cart"></i> Checkout Now
-        </button>
-    </div>
-
-    <!-- Checkout Modal -->
-    <div class="checkout-modal" id="checkoutModal">
-        <div class="checkout-content">
-            <button class="close-checkout" id="closeCheckout">&times;</button>
-            
-            <div class="checkout-header">
-                <h2>Complete Your Order</h2>
-                <p>Fill in your details and complete payment via WhatsApp</p>
-            </div>
+        <!-- Professional Checkout Section -->
+        <section class="checkout-container" id="checkoutSection" style="display: none;">
+            <h1 style="font-family: 'Orbitron', sans-serif; font-size: 2.8rem; color: var(--light); margin-bottom: 50px; text-align: center; background: linear-gradient(90deg, var(--primary), var(--neon-blue)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                COMPLETE YOUR ORDER
+            </h1>
 
             <!-- Checkout Steps -->
             <div class="checkout-steps">
                 <div class="step active" data-step="1">
                     <div class="step-circle">1</div>
-                    <div class="step-label">Info</div>
+                    <div class="step-label">Personal Info</div>
                 </div>
                 <div class="step" data-step="2">
                     <div class="step-circle">2</div>
-                    <div class="step-label">Game</div>
+                    <div class="step-label">Game Details</div>
                 </div>
                 <div class="step" data-step="3">
                     <div class="step-circle">3</div>
-                    <div class="step-label">Pay</div>
+                    <div class="step-label">Payment</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">Confirmation</div>
                 </div>
             </div>
 
-            <!-- Step 1: Personal Info -->
-            <div class="checkout-step active" data-step="1">
-                <div class="form-group">
-                    <label class="form-label">Full Name <span class="required">*</span></label>
-                    <input type="text" class="form-input" id="fullName" placeholder="Your full name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">WhatsApp Number <span class="required">*</span></label>
-                    <input type="tel" class="form-input" id="whatsappNumber" placeholder="+220 678 7259" required>
-                    <div class="form-hint">
-                        <i class="fab fa-whatsapp"></i> Include country code
+            <div class="checkout-grid">
+                <!-- Left Column: Checkout Form -->
+                <div class="checkout-form-container">
+                    <!-- Step 1: Personal Information -->
+                    <div class="checkout-section active" data-step="1">
+                        <h2 class="section-title">
+                            <i class="fas fa-user-circle"></i> Personal Information
+                        </h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-user"></i> First Name <span class="required">*</span>
+                                </label>
+                                <input type="text" class="form-input" id="firstName" placeholder="Your first name" required>
+                                <div class="form-hint">
+                                    <i class="fas fa-info-circle"></i> Your legal first name
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-user"></i> Last Name <span class="required">*</span>
+                                </label>
+                                <input type="text" class="form-input" id="lastName" placeholder="Your last name" required>
+                                <div class="form-hint">
+                                    <i class="fas fa-info-circle"></i> Your legal last name
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-envelope"></i> Email Address
+                            </label>
+                            <input type="email" class="form-input" id="email" placeholder="your.email@example.com (optional)">
+                            <div class="form-hint">
+                                <i class="fas fa-info-circle"></i> Optional - for receipts and Apple Gift Card delivery
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Number <span class="required">*</span>
+                            </label>
+                            <input type="tel" class="form-input" id="phone" placeholder="+220 678 7259" required>
+                            <div class="form-hint">
+                                <i class="fab fa-whatsapp"></i> Include country code for WhatsApp confirmation
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Email (Optional)</label>
-                    <input type="email" class="form-input" id="email" placeholder="your@email.com">
-                    <div class="form-hint">
-                        <i class="fas fa-info-circle"></i> For receipts only
-                    </div>
-                </div>
-            </div>
 
-            <!-- Step 2: Game Details -->
-            <div class="checkout-step" data-step="2" style="display: none;">
-                <div class="form-group">
-                    <label class="form-label">Game UID/ID <span class="required" id="uidLabel">*</span></label>
-                    <input type="text" class="form-input" id="gameUID" placeholder="Enter your game ID">
-                    <div class="form-hint" id="gameHint">
-                        <i class="fas fa-key"></i> Your unique game identifier
+                    <!-- Step 2: Game Details -->
+                    <div class="checkout-section" data-step="2">
+                        <h2 class="section-title">
+                            <i class="fas fa-gamepad"></i> Game Details
+                        </h2>
+                        
+                        <div class="form-hint region-hint" id="regionHint" style="display: none; background: rgba(255, 179, 0, 0.1); border-left: 3px solid var(--warning); padding: 16px; border-radius: 10px; margin-top: 20px;">
+                            <i class="fas fa-exclamation-triangle"></i> 
+                            <strong>Region Selection Required:</strong> Please select your game server region. This is required for all non-Apple items.
+                        </div>
+                        
+                        <div id="gameDetailsSection">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-key"></i> Game UID/ID <span class="required" id="uidRequired">*</span>
+                                </label>
+                                <input type="text" class="form-input" id="gameUID" placeholder="Enter your game ID (numbers only)">
+                                <div class="form-hint">
+                                    <i class="fas fa-key"></i> Your unique game identifier
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-globe"></i> Server Region <span class="required region-required" id="regionRequired">*</span>
+                                </label>
+                                <select class="form-input" id="gameRegion">
+                                    <option value="">SELECT YOUR REGION (Required for non-Apple items)</option>
+                                    <option value="MENA">MENA (Middle East & North Africa)</option>
+                                    <option value="EU">EU (Europe)</option>
+                                    <option value="NA">NA (North America)</option>
+                                    <option value="AS">AS (Asia)</option>
+                                    <option value="AF">AF (Africa)</option>
+                                </select>
+                                <div class="form-hint">
+                                    <i class="fas fa-globe"></i> Choose the server where you play your games
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="appleInstructions" style="display: none; background: rgba(255,179,0,0.1); border-left: 3px solid var(--warning); padding: 20px; border-radius: 12px; margin-top: 25px;">
+                            <h3 style="color: var(--warning); margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-exclamation-circle"></i> Apple Gift Card Instructions
+                            </h3>
+                            <p style="color: var(--gray); font-size: 0.95rem; line-height: 1.6;">
+                                Apple Gift Cards require a US Apple ID. We'll send detailed setup instructions to your email after purchase. No game UID needed for gift cards.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Server Region <span class="required" id="regionLabel">*</span></label>
-                    <select class="form-input" id="gameRegion">
-                        <option value="">Select Region</option>
-                        <option value="MENA">Middle East & Africa</option>
-                        <option value="EU">Europe</option>
-                        <option value="NA">North America</option>
-                        <option value="AS">Asia</option>
-                    </select>
-                </div>
-                
-                <div class="form-group" id="appleNote" style="display: none;">
-                    <div class="form-hint" style="background: rgba(255,107,0,0.1); padding: 12px; border-radius: 8px;">
-                        <i class="fas fa-info-circle"></i> Apple Gift Cards require US Apple ID. Instructions will be emailed.
-                    </div>
-                </div>
-            </div>
 
-            <!-- Step 3: Payment -->
-            <div class="checkout-step" data-step="3" style="display: none;">
-                <div class="form-group">
-                    <label class="form-label">Select Payment Method <span class="required">*</span></label>
-                    <div class="payment-methods">
-                        <div class="payment-method" data-method="wave">
-                            <div class="payment-icon">
-                                <i class="fas fa-wave-square"></i>
+                    <!-- Step 3: Payment Method -->
+                    <div class="checkout-section" data-step="3">
+                        <h2 class="section-title">
+                            <i class="fas fa-credit-card"></i> Payment Method
+                        </h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-wallet"></i> Select Payment Method <span class="required">*</span>
+                            </label>
+                            <div class="payment-methods">
+                                <div class="payment-method" data-method="wave">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-wave-square"></i>
+                                    </div>
+                                    <div class="payment-name">wave</div>
+                                </div>
+                                <div class="payment-method" data-method="aps">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-wallet"></i>
+                                    </div>
+                                    <div class="payment-name">APS Wallet</div>
+                                </div>
+                                <div class="payment-method" data-method="comcach">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="payment-name">Comcach</div>
+                                </div>
                             </div>
-                            <div class="payment-name">wave</div>
+                            <input type="hidden" id="paymentMethod" required>
                         </div>
-                        <div class="payment-method" data-method="aps">
-                            <div class="payment-icon">
-                                <i class="fas fa-wallet"></i>
+                        
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-sticky-note"></i> Additional Notes (Optional)</label>
+                            <textarea class="form-input" id="orderNotes" rows="3" placeholder="Any special instructions or requests for your order..."></textarea>
+                            <div class="form-hint">
+                                <i class="fas fa-sticky-note"></i> Delivery time preferences or other requests
                             </div>
-                            <div class="payment-name">APS</div>
-                        </div>
-                        <div class="payment-method" data-method="comcach">
-                            <div class="payment-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div class="payment-name">Comcach</div>
                         </div>
                     </div>
-                    <input type="hidden" id="paymentMethod" required>
+
+                    <!-- Step 4: Confirmation -->
+                    <div class="checkout-section" data-step="4">
+                        <h2 class="section-title">
+                            <i class="fas fa-check-circle"></i> Order Confirmation
+                        </h2>
+                        
+                        <div style="text-align: center; padding: 50px 20px;">
+                            <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; font-size: 2.5rem; color: var(--darker); box-shadow: 0 20px 40px rgba(0, 255, 157, 0.4);">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <h3 style="color: var(--light); margin-bottom: 20px; font-size: 1.8rem; font-family: 'Orbitron', sans-serif;">
+                                Ready to Complete Your Order!
+                            </h3>
+                            <p style="color: var(--gray); margin-bottom: 40px; font-size: 1.1rem;">
+                                Review your order details on the right. Once confirmed, you'll receive payment instructions via WhatsApp.
+                            </p>
+                            <div style="background: rgba(0, 255, 157, 0.1); padding: 20px; border-radius: 15px; border: 1px solid rgba(0, 255, 157, 0.3); backdrop-filter: blur(10px);">
+                                <p style="color: var(--primary); font-weight: 800; margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                    <i class="fas fa-shield-alt"></i> 100% Secure Transaction
+                                </p>
+                                <p style="color: var(--gray); font-size: 0.95rem;">
+                                    Your payment information is protected and will never be stored on our servers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="action-buttons">
+                        <button class="action-btn secondary" id="prevBtn" style="display: none;">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button class="action-btn primary" id="nextBtn">
+                            Continue <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Notes (Optional)</label>
-                    <textarea class="form-input" id="orderNotes" rows="2" placeholder="Any special requests..."></textarea>
-                </div>
-                
-                <!-- Order Review -->
-                <div class="order-review">
+
+                <!-- Right Column: Order Summary -->
+                <div class="order-summary-container">
+                    <h2 class="order-summary-title">
+                        <i class="fas fa-shopping-cart"></i> Order Summary
+                    </h2>
+                    
                     <div class="order-items" id="orderItems">
-                        <!-- Order items will be shown here -->
+                        <!-- Order items will be dynamically added here -->
+                        <p style="color: var(--gray); text-align: center; padding: 40px 20px; font-size: 1.1rem;">
+                            <i class="fas fa-shopping-bag" style="font-size: 2rem; margin-bottom: 15px; color: var(--gray); display: block;"></i>
+                            No items in cart
+                        </p>
                     </div>
+                    
                     <div class="order-total">
-                        <span>Total Amount:</span>
-                        <span id="reviewTotal">D0</span>
+                        <div class="total-label">Total Amount</div>
+                        <div class="total-amount" id="orderTotal">D0</div>
+                    </div>
+                    
+                    <div style="background: rgba(0, 255, 157, 0.1); padding: 20px; border-radius: 15px; margin: 25px 0; border: 1px solid rgba(0, 255, 157, 0.3);">
+                        <p style="color: var(--primary); font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-bolt"></i> Instant Delivery
+                        </p>
+                        <p style="color: var(--gray); font-size: 0.95rem;">
+                            Most top-ups are delivered within 5-15 minutes after payment confirmation.
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(0, 153, 255, 0.1); padding: 20px; border-radius: 15px; border: 1px solid rgba(0, 153, 255, 0.3);">
+                        <p style="color: var(--secondary); font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-headset"></i> 24/7 Support
+                        </p>
+                        <p style="color: var(--gray); font-size: 0.95rem;">
+                            Need help? WhatsApp us anytime at <strong style="color: var(--light);">+220 678 7259</strong>
+                        </p>
                     </div>
                 </div>
             </div>
+        </section>
+    </div>
 
-            <!-- Action Buttons -->
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>ANONYMOUS GAMING</h3>
+                    <p style="color: var(--gray); margin-bottom: 1.8rem; line-height: 1.6;">
+                        Your trusted source for premium gaming top-ups and gift cards. 
+                        Instant delivery, best prices, and 24/7 customer support.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/2206787259" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:johntopupforgames@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="footer-links">
+                        <a href="https://wa.me/2206787259" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp: +220 678 7259
+                        </a>
+                        <a href="mailto:johntopupforgames@gmail.com">
+                            <i class="fas fa-envelope"></i> Email: johntopupforgames@gmail.com
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-clock"></i> Support: 24/7
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                        <a href="#" onclick="startCheckout()">
+                            <i class="fas fa-shopping-cart"></i> Checkout
+                        </a>
+                        <a href="https://wa.me/2206787259" target="_blank">
+                            <i class="fas fa-headset"></i> Support
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Payment Methods</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 0.5rem;">
+                        <span style="background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; color: var(--gray); font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-wave-square" style="color: var(--primary);"></i> wave
+                        </span>
+                        <span style="background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; color: var(--gray); font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-wallet" style="color: var(--primary);"></i> APS Wallet
+                        </span>
+                        <span style="background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; color: var(--gray); font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-mobile-alt" style="color: var(--primary);"></i> Comcach
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 ANONYMOUS GAMING TOP-UPS. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--gray);">All game content and trademarks are property of their respective owners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Confirmation Modal -->
+    <div class="confirmation-modal" id="confirmationModal">
+        <div class="confirmation-card">
+            <div class="confirmation-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 class="confirmation-title">Payment Instructions</h2>
+            <p class="confirmation-message" id="paymentInstructions">
+                Please send your payment to complete the order. You'll be redirected to WhatsApp with your order details.
+            </p>
+            
+            <div style="background: rgba(0, 0, 0, 0.3); padding: 25px; border-radius: 15px; margin: 30px 0; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                <p style="color: var(--light); margin-bottom: 20px; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-qrcode"></i> Payment Details
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                    <span style="color: var(--gray); font-weight: 500;">Amount:</span>
+                    <span style="color: var(--primary); font-weight: 800; font-size: 1.3rem; font-family: 'Orbitron', sans-serif;" id="paymentAmount">D0</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <span style="color: var(--gray); font-weight: 500;">Method:</span>
+                    <span style="color: var(--light); font-weight: 700; font-size: 1.1rem;" id="paymentMethodDisplay">—</span>
+                </div>
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <span style="color: var(--gray); font-size: 0.9rem; font-weight: 500;">Send payment to:</span>
+                    <p style="color: var(--light); font-weight: 800; font-size: 1.3rem; margin-top: 10px; display: flex; align-items: center; gap: 15px;">
+                        <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.5rem;"></i> +220 678 7259
+                    </p>
+                </div>
+            </div>
+            
             <div class="action-buttons">
-                <button class="action-btn secondary" id="prevStepBtn" style="display: none;">
-                    <i class="fas fa-arrow-left"></i> Back
+                <button class="action-btn secondary" id="cancelPayment">
+                    <i class="fas fa-times"></i> Cancel
                 </button>
-                <button class="action-btn primary" id="nextStepBtn">
-                    Continue <i class="fas fa-arrow-right"></i>
+                <button class="action-btn primary" id="confirmPayment">
+                    <i class="fab fa-whatsapp"></i> I've Paid - Continue
                 </button>
             </div>
         </div>
@@ -1005,82 +2084,474 @@
 
     <!-- Notification -->
     <div class="notification" id="notification">
-        <div id="notificationMessage"></div>
+        <div id="notificationMessage">Notification message</div>
     </div>
 
-    <!-- Loading Overlay -->
-    <div class="loading" id="loading">
-        <div class="loader"></div>
+    <!-- Floating Cart Button -->
+    <div id="floatingCart">
+        <button onclick="startCheckout()">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Checkout</span>
+            <span id="cartCount">0</span>
+        </button>
     </div>
 
     <script>
-        // Price Data
+        // Complete Price Data with ALL prices from your original code
         const priceData = [
             // Free Fire Prices
-            {id: 1, game: "Free Fire", item: "110 Diamonds", price: 100, category: "Free Fire", featured: false},
-            {id: 2, game: "Free Fire", item: "231 Diamonds", price: 200, category: "Free Fire", featured: true, discount: "5% OFF"},
-            {id: 3, game: "Free Fire", item: "341 Diamonds", price: 304, category: "Free Fire", featured: false},
-            {id: 4, game: "Free Fire", item: "581 Diamonds", price: 504, category: "Free Fire", featured: false},
-            {id: 5, game: "Free Fire", item: "1,188 Diamonds", price: 931, category: "Free Fire", featured: true, discount: "20% OFF"},
-            
+            {
+                id: 1,
+                game: "Free Fire",
+                item: "110 Diamonds",
+                price: 100,
+                featured: false,
+                discount: null,
+                perUnit: "D0.91 per diamond",
+                features: ["Instant delivery", "No login required", "24/7 support"],
+                category: "Free Fire"
+            },
+            {
+                id: 2,
+                game: "Free Fire",
+                item: "231 Diamonds",
+                price: 200,
+                featured: false,
+                discount: "5% OFF",
+                perUnit: "D0.87 per diamond",
+                features: ["Best value", "Instant delivery", "No login required"],
+                category: "Free Fire"
+            },
+            {
+                id: 3,
+                game: "Free Fire",
+                item: "341 Diamonds",
+                price: 304,
+                featured: false,
+                discount: "10% OFF",
+                perUnit: "D0.89 per diamond",
+                features: ["Popular choice", "Fast delivery", "Reliable service"],
+                category: "Free Fire"
+            },
+            {
+                id: 4,
+                game: "Free Fire",
+                item: "581 Diamonds",
+                price: 504,
+                featured: false,
+                discount: "15% OFF",
+                perUnit: "D0.87 per diamond",
+                features: ["Great value", "Instant delivery", "Premium support"],
+                category: "Free Fire"
+            },
+            {
+                id: 5,
+                game: "Free Fire",
+                item: "1,188 Diamonds",
+                price: 931,
+                featured: true,
+                discount: "20% OFF",
+                perUnit: "D0.78 per diamond",
+                features: ["Most popular", "Extra bonus", "Priority support"],
+                category: "Free Fire"
+            },
+            {
+                id: 6,
+                game: "Free Fire",
+                item: "2,420 Diamonds",
+                price: 1805,
+                featured: false,
+                discount: "25% OFF",
+                perUnit: "D0.75 per diamond",
+                features: ["Best deal", "Maximum value", "VIP support"],
+                category: "Free Fire"
+            },
+            {
+                id: 7,
+                game: "Free Fire",
+                item: "Monthly Membership",
+                price: 903,
+                featured: false,
+                discount: null,
+                perUnit: "30 days premium",
+                features: ["Full month access", "Daily rewards", "Exclusive perks"],
+                category: "Free Fire"
+            },
+            {
+                id: 8,
+                game: "Free Fire",
+                item: "Weekly Membership",
+                price: 276,
+                featured: false,
+                discount: null,
+                perUnit: "7 days premium",
+                features: ["Weekly access", "Special rewards", "Flexible plan"],
+                category: "Free Fire"
+            },
+            {
+                id: 9,
+                game: "Free Fire",
+                item: "Booyah Pass",
+                price: 285,
+                featured: false,
+                discount: null,
+                perUnit: "Season pass",
+                features: ["Exclusive items", "Battle rewards", "Limited time"],
+                category: "Free Fire"
+            },
+            {
+                id: 10,
+                game: "Free Fire",
+                item: "Level Up Pass",
+                price: 451,
+                featured: false,
+                discount: null,
+                perUnit: "Progression boost",
+                features: ["Level boost", "Exclusive rewards", "Faster progress"],
+                category: "Free Fire"
+            },
+            {
+                id: 11,
+                game: "Free Fire",
+                item: "Evo Pass (1 Month)",
+                price: 546,
+                featured: false,
+                discount: null,
+                perUnit: "Evolution pass",
+                features: ["Evolution items", "Monthly rewards", "Special perks"],
+                category: "Free Fire"
+            },
+
             // PUBG Prices
-            {id: 6, game: "PUBG", item: "60 UC", price: 90, category: "PUBG", featured: false},
-            {id: 7, game: "PUBG", item: "300 + 25 UC", price: 392, category: "PUBG", featured: false},
-            {id: 8, game: "PUBG", item: "600 + 60 UC", price: 776, category: "PUBG", featured: false},
-            {id: 9, game: "PUBG", item: "1,500 + 300 UC", price: 1864, category: "PUBG", featured: true, discount: "18% OFF"},
-            
+            {
+                id: 12,
+                game: "PUBG",
+                item: "60 UC",
+                price: 90,
+                featured: false,
+                discount: null,
+                perUnit: "D1.5 per UC",
+                features: ["Instant delivery", "Global server", "24/7 support"],
+                category: "PUBG"
+            },
+            {
+                id: 13,
+                game: "PUBG",
+                item: "300 + 25 UC",
+                price: 392,
+                featured: false,
+                discount: "8% OFF",
+                perUnit: "D1.21 per UC",
+                features: ["Best value", "Extra bonus UC", "Fast delivery"],
+                category: "PUBG"
+            },
+            {
+                id: 14,
+                game: "PUBG",
+                item: "600 + 60 UC",
+                price: 776,
+                featured: false,
+                discount: "12% OFF",
+                perUnit: "D1.18 per UC",
+                features: ["Great deal", "Extra UC bonus", "Priority service"],
+                category: "PUBG"
+            },
+            {
+                id: 15,
+                game: "PUBG",
+                item: "1500 + 300 UC",
+                price: 1864,
+                featured: true,
+                discount: "18% OFF",
+                perUnit: "D1.04 per UC",
+                features: ["Premium pack", "Massive bonus", "VIP support"],
+                category: "PUBG"
+            },
+            {
+                id: 16,
+                game: "PUBG",
+                item: "3000 + 850 UC",
+                price: 3620,
+                featured: false,
+                discount: "22% OFF",
+                perUnit: "D0.94 per UC",
+                features: ["Ultimate pack", "Maximum bonus", "Instant delivery"],
+                category: "PUBG"
+            },
+
             // Blood Strike Prices
-            {id: 10, game: "Blood Strike", item: "112 Gold", price: 76, category: "Blood Strike", featured: false},
-            {id: 11, game: "Blood Strike", item: "320 Gold", price: 222, category: "Blood Strike", featured: false},
-            {id: 12, game: "Blood Strike", item: "1,011 Gold", price: 732, category: "Blood Strike", featured: true, discount: "18% OFF"},
-            
+            {
+                id: 17,
+                game: "Blood Strike",
+                item: "112 Gold (96 + 5 + 11)",
+                price: 76,
+                featured: false,
+                discount: null,
+                perUnit: "D0.68 per gold",
+                features: ["Instant delivery", "No login required", "24/7 support"],
+                category: "Blood Strike"
+            },
+            {
+                id: 18,
+                game: "Blood Strike",
+                item: "105 Gold",
+                price: 86,
+                featured: false,
+                discount: null,
+                perUnit: "D0.82 per gold",
+                features: ["Basic pack", "Quick delivery", "Reliable service"],
+                category: "Blood Strike"
+            },
+            {
+                id: 19,
+                game: "Blood Strike",
+                item: "320 Gold (300 + 20)",
+                price: 222,
+                featured: false,
+                discount: "10% OFF",
+                perUnit: "D0.69 per gold",
+                features: ["Popular choice", "Extra bonus", "Fast delivery"],
+                category: "Blood Strike"
+            },
+            {
+                id: 20,
+                game: "Blood Strike",
+                item: "515 Gold (490 + 25)",
+                price: 374,
+                featured: false,
+                discount: "12% OFF",
+                perUnit: "D0.73 per gold",
+                features: ["Great value", "Bonus gold", "Premium support"],
+                category: "Blood Strike"
+            },
+            {
+                id: 21,
+                game: "Blood Strike",
+                item: "540 Gold (500 + 40)",
+                price: 418,
+                featured: false,
+                discount: "15% OFF",
+                perUnit: "D0.77 per gold",
+                features: ["Special offer", "Extra bonus", "Quick delivery"],
+                category: "Blood Strike"
+            },
+            {
+                id: 22,
+                game: "Blood Strike",
+                item: "1,011 Gold (951 + 60)",
+                price: 732,
+                featured: true,
+                discount: "18% OFF",
+                perUnit: "D0.72 per gold",
+                features: ["Best seller", "Massive bonus", "Priority service"],
+                category: "Blood Strike"
+            },
+            {
+                id: 23,
+                game: "Blood Strike",
+                item: "1,100 Gold (1000 + 100)",
+                price: 782,
+                featured: false,
+                discount: "20% OFF",
+                perUnit: "D0.71 per gold",
+                features: ["Ultimate pack", "Maximum bonus", "VIP support"],
+                category: "Blood Strike"
+            },
+
             // Roblox Prices
-            {id: 13, game: "Roblox", item: "80 Robux", price: 210, category: "Roblox", featured: false},
-            {id: 14, game: "Roblox", item: "400 Robux", price: 500, category: "Roblox", featured: false},
-            {id: 15, game: "Roblox", item: "800 Robux", price: 980, category: "Roblox", featured: false},
-            {id: 16, game: "Roblox", item: "10,000 Robux", price: 8350, category: "Roblox", featured: true, discount: "25% OFF"},
-            
-            // Apple Gift Cards
-            {id: 17, game: "Apple Gift Card", item: "$2 Apple Card", price: 210, category: "Apple Gift Card", featured: false},
-            {id: 18, game: "Apple Gift Card", item: "$10 Apple Card", price: 950, category: "Apple Gift Card", featured: false},
-            {id: 19, game: "Apple Gift Card", item: "$25 Apple Card", price: 2250, category: "Apple Gift Card", featured: false},
-            {id: 20, game: "Apple Gift Card", item: "$100 Apple Card", price: 8350, category: "Apple Gift Card", featured: true, discount: "17% OFF"}
+            {
+                id: 24,
+                game: "Roblox",
+                item: "80 Robux",
+                price: 210,
+                featured: false,
+                discount: null,
+                perUnit: "D2.63 per Robux",
+                features: ["Instant delivery", "Premium membership", "24/7 support"],
+                category: "Roblox"
+            },
+            {
+                id: 25,
+                game: "Roblox",
+                item: "400 Robux",
+                price: 500,
+                featured: false,
+                discount: "5% OFF",
+                perUnit: "D1.25 per Robux",
+                features: ["Best value", "Fast delivery", "Reliable service"],
+                category: "Roblox"
+            },
+            {
+                id: 26,
+                game: "Roblox",
+                item: "800 Robux",
+                price: 980,
+                featured: false,
+                discount: "10% OFF",
+                perUnit: "D1.23 per Robux",
+                features: ["Popular choice", "Premium support", "Quick delivery"],
+                category: "Roblox"
+            },
+            {
+                id: 27,
+                game: "Roblox",
+                item: "1,700 Robux",
+                price: 1800,
+                featured: false,
+                discount: "15% OFF",
+                perUnit: "D1.06 per Robux",
+                features: ["Great deal", "Extra bonus", "Priority service"],
+                category: "Roblox"
+            },
+            {
+                id: 28,
+                game: "Roblox",
+                item: "4,500 Robux",
+                price: 4300,
+                featured: false,
+                discount: "20% OFF",
+                perUnit: "D0.96 per Robux",
+                features: ["Premium pack", "Massive value", "VIP support"],
+                category: "Roblox"
+            },
+            {
+                id: 29,
+                game: "Roblox",
+                item: "10,000 Robux",
+                price: 8350,
+                featured: true,
+                discount: "25% OFF",
+                perUnit: "D0.84 per 1k Robux",
+                features: ["Best value", "Premium membership", "24/7 support"],
+                category: "Roblox"
+            },
+
+            // Apple Gift Card Prices
+            {
+                id: 30,
+                game: "Apple Gift Card",
+                item: "$2 Apple Gift Card",
+                price: 210,
+                featured: false,
+                discount: null,
+                perUnit: "D105 per $1",
+                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                category: "Apple Gift Card"
+            },
+            {
+                id: 31,
+                game: "Apple Gift Card",
+                item: "$5 Apple Gift Card",
+                price: 500,
+                featured: false,
+                discount: null,
+                perUnit: "D100 per $1",
+                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                category: "Apple Gift Card"
+            },
+            {
+                id: 32,
+                game: "Apple Gift Card",
+                item: "$10 Apple Gift Card",
+                price: 950,
+                featured: false,
+                discount: "5% OFF",
+                perUnit: "D95 per $1",
+                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                category: "Apple Gift Card"
+            },
+            {
+                id: 33,
+                game: "Apple Gift Card",
+                item: "$20 Apple Gift Card",
+                price: 1800,
+                featured: false,
+                discount: "10% OFF",
+                perUnit: "D90 per $1",
+                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                category: "Apple Gift Card"
+            },
+            {
+                id: 34,
+                game: "Apple Gift Card",
+                item: "$25 Apple Gift Card",
+                price: 2250,
+                featured: false,
+                discount: "10% OFF",
+                perUnit: "D90 per $1",
+                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                category: "Apple Gift Card"
+            },
+            {
+                id: 35,
+                game: "Apple Gift Card",
+                item: "$50 Apple Gift Card",
+                price: 4300,
+                featured: false,
+                discount: "14% OFF",
+                perUnit: "D86 per $1",
+                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                category: "Apple Gift Card"
+            },
+            {
+                id: 36,
+                game: "Apple Gift Card",
+                item: "$100 Apple Gift Card",
+                price: 8350,
+                featured: true,
+                discount: "17% OFF",
+                perUnit: "D83.5 per $1",
+                features: ["Best value", "US Apple Store", "Email delivery"],
+                category: "Apple Gift Card"
+            }
         ];
 
         // Shopping Cart
         let cart = JSON.parse(localStorage.getItem('anonymousCart')) || [];
         let currentStep = 1;
         let currentFilter = 'all';
+        
+        // Your WhatsApp number for receiving orders
         const YOUR_WHATSAPP_NUMBER = "2206787259";
 
-        // Initialize
+        // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             renderPriceCards();
-            updateCartSummary();
+            updateOrderSummary();
             setupEventListeners();
-            setupGameTabs();
+            setupFilterButtons();
+            showLoading(false);
         });
 
-        // Setup Game Tabs
-        function setupGameTabs() {
-            document.querySelectorAll('.game-tab').forEach(tab => {
-                tab.addEventListener('click', () => {
-                    document.querySelectorAll('.game-tab').forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    currentFilter = tab.dataset.filter;
+        function showLoading(show) {
+            document.getElementById('loader').classList.toggle('active', show);
+        }
+
+        // Setup filter buttons
+        function setupFilterButtons() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Filter items
+                    currentFilter = btn.dataset.filter;
                     renderPriceCards();
                 });
             });
         }
 
-        // Render Price Cards
+        // Render professional price cards with filtering
         function renderPriceCards() {
             const container = document.getElementById('priceDisplay');
             container.innerHTML = '';
             
-            const filteredItems = currentFilter === 'all' 
-                ? priceData 
-                : priceData.filter(item => item.category === currentFilter);
+            // Filter items
+            const filteredItems = priceData.filter(item => {
+                if (currentFilter === 'all') return true;
+                return item.category === currentFilter;
+            });
             
             filteredItems.forEach(item => {
                 const card = document.createElement('div');
@@ -1094,15 +2565,22 @@
                             <i class="fas fa-gamepad"></i> ${item.game}
                         </div>
                     </div>
-                    <div class="price-value">D${item.price}</div>
+                    <div class="price-value">
+                        D${item.price}
+                        <span class="price-currency">GMD</span>
+                    </div>
+                    <div class="price-per-unit">
+                        <i class="fas fa-chart-line"></i> ${item.perUnit}
+                    </div>
                     <ul class="price-features">
-                        <li><i class="fas fa-bolt"></i> Instant Delivery</li>
-                        <li><i class="fas fa-shield-alt"></i> 100% Safe</li>
-                        <li><i class="fas fa-headset"></i> 24/7 Support</li>
+                        ${item.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}
                     </ul>
-                    <button class="add-to-cart" onclick="addToCart(${item.id})">
-                        <i class="fas fa-cart-plus"></i> Add to Cart
-                    </button>
+                    <div class="price-action">
+                        <button class="price-btn ${item.featured ? 'primary' : 'secondary'}" 
+                                onclick="addToCart(${item.id})">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
                 `;
                 
                 container.appendChild(card);
@@ -1114,10 +2592,11 @@
             const item = priceData.find(p => p.id === itemId);
             if (!item) return;
             
-            const existingItem = cart.find(cartItem => cartItem.id === itemId);
+            // Check if item already in cart
+            const existingIndex = cart.findIndex(cartItem => cartItem.id === itemId);
             
-            if (existingItem) {
-                existingItem.quantity += 1;
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
             } else {
                 cart.push({
                     id: item.id,
@@ -1129,85 +2608,127 @@
             }
             
             saveCart();
-            updateCartSummary();
-            showNotification(`${item.item} added to cart!`);
+            updateOrderSummary();
+            showNotification(`${item.item} added to cart!`, 'success');
             
-            // Animate cart button
-            const cartCount = document.getElementById('cartCount');
-            cartCount.style.transform = 'scale(1.3)';
-            setTimeout(() => cartCount.style.transform = 'scale(1)', 300);
+            // Animate the cart button
+            const cartBtn = document.querySelector('#floatingCart button');
+            cartBtn.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                cartBtn.style.transform = '';
+            }, 200);
+        }
+
+        function removeFromCart(itemId) {
+            cart = cart.filter(item => item.id !== itemId);
+            saveCart();
+            updateOrderSummary();
+            showNotification('Item removed from cart', 'warning');
+        }
+
+        function updateQuantity(itemId, newQuantity) {
+            if (newQuantity < 1) {
+                removeFromCart(itemId);
+                return;
+            }
+            
+            const itemIndex = cart.findIndex(item => item.id === itemId);
+            if (itemIndex > -1) {
+                cart[itemIndex].quantity = newQuantity;
+                saveCart();
+                updateOrderSummary();
+            }
         }
 
         function saveCart() {
             localStorage.setItem('anonymousCart', JSON.stringify(cart));
+            updateCartCount();
         }
 
-        function updateCartSummary() {
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        function clearCart() {
+            if (cart.length === 0) return;
             
-            document.getElementById('cartTotal').textContent = `D${total}`;
-            document.getElementById('cartCount').textContent = count;
-            document.getElementById('reviewTotal').textContent = `D${total}`;
-            
-            const cartSummary = document.getElementById('cartSummary');
-            const checkoutBtn = document.getElementById('checkoutBtn');
-            
-            if (count > 0) {
-                cartSummary.style.display = 'block';
-                checkoutBtn.disabled = false;
-                updateOrderReview();
-            } else {
-                cartSummary.style.display = 'none';
-                checkoutBtn.disabled = true;
+            if (confirm('Are you sure you want to clear your cart?')) {
+                cart = [];
+                saveCart();
+                updateOrderSummary();
+                showNotification('Cart cleared', 'warning');
             }
         }
 
-        function updateOrderReview() {
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+            
+            // Show/hide floating cart button
+            const floatingCart = document.getElementById('floatingCart');
+            if (totalItems > 0) {
+                floatingCart.style.display = 'block';
+            } else {
+                floatingCart.style.display = 'none';
+            }
+        }
+
+        // Order Summary
+        function updateOrderSummary() {
             const container = document.getElementById('orderItems');
+            const totalElement = document.getElementById('orderTotal');
+            
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="color: var(--gray); text-align: center; padding: 40px 20px; font-size: 1.1rem;"><i class="fas fa-shopping-bag" style="font-size: 2rem; margin-bottom: 15px; color: var(--gray); display: block;"></i>No items in cart</p>';
+                totalElement.textContent = 'D0';
+                updateCartCount();
+                return;
+            }
+            
+            let total = 0;
             container.innerHTML = '';
             
             cart.forEach(item => {
                 const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
                 const itemElement = document.createElement('div');
                 itemElement.className = 'order-item';
                 itemElement.innerHTML = `
-                    <div>
-                        <div style="font-weight: 600; font-size: 0.9rem;">${item.item}</div>
-                        <div style="font-size: 0.8rem; color: var(--gray);">${item.game}</div>
-                        <div style="font-size: 0.8rem; color: var(--gray);">Qty: ${item.quantity}</div>
+                    <div class="item-info">
+                        <div class="item-name">${item.item}</div>
+                        <div class="item-game">${item.game}</div>
+                        <div class="item-controls">
+                            <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                            <div class="item-quantity">${item.quantity}</div>
+                            <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                        </div>
                     </div>
-                    <div style="font-weight: 700; color: var(--primary);">D${itemTotal}</div>
+                    <div class="item-price">D${itemTotal}</div>
                 `;
                 container.appendChild(itemElement);
             });
+            
+            totalElement.textContent = `D${total}`;
+            
+            // Add clear cart button
+            const clearButton = document.createElement('div');
+            clearButton.style.marginTop = '25px';
+            clearButton.innerHTML = `
+                <button onclick="clearCart()" style="width: 100%; padding: 15px; background: rgba(255, 42, 109, 0.1); color: var(--error); border: 2px solid var(--error); border-radius: 10px; cursor: pointer; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <i class="fas fa-trash"></i> Clear Cart
+                </button>
+            `;
+            container.appendChild(clearButton);
+            
+            updateCartCount();
         }
 
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            const messageEl = document.getElementById('notificationMessage');
-            
-            messageEl.textContent = message;
-            notification.classList.add('active');
-            
-            setTimeout(() => {
-                notification.classList.remove('active');
-            }, 3000);
-        }
-
-        // Checkout Functions
+        // Checkout Navigation
         function setupEventListeners() {
-            // Checkout Button
-            document.getElementById('checkoutBtn').addEventListener('click', openCheckout);
+            // Next button
+            document.getElementById('nextBtn').addEventListener('click', goToNextStep);
             
-            // Close Checkout
-            document.getElementById('closeCheckout').addEventListener('click', closeCheckout);
+            // Previous button
+            document.getElementById('prevBtn').addEventListener('click', goToPrevStep);
             
-            // Step Navigation
-            document.getElementById('nextStepBtn').addEventListener('click', goToNextStep);
-            document.getElementById('prevStepBtn').addEventListener('click', goToPrevStep);
-            
-            // Payment Method Selection
+            // Payment method selection
             document.querySelectorAll('.payment-method').forEach(method => {
                 method.addEventListener('click', () => {
                     document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
@@ -1216,96 +2737,89 @@
                 });
             });
             
-            // Prevent form submission on Enter
-            document.querySelectorAll('.form-input').forEach(input => {
-                input.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        goToNextStep();
-                    }
-                });
+            // Confirmation modal buttons
+            document.getElementById('cancelPayment').addEventListener('click', () => {
+                document.getElementById('confirmationModal').classList.remove('active');
             });
+            
+            document.getElementById('confirmPayment').addEventListener('click', completeOrder);
         }
 
-        function openCheckout() {
-            document.getElementById('checkoutModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-            resetCheckout();
-        }
-
-        function closeCheckout() {
-            document.getElementById('checkoutModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        function resetCheckout() {
-            currentStep = 1;
-            updateStepDisplay();
+        function startCheckout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!', 'warning');
+                return;
+            }
             
-            // Reset form
-            document.getElementById('fullName').value = '';
-            document.getElementById('whatsappNumber').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('gameUID').value = '';
-            document.getElementById('gameRegion').value = '';
-            document.getElementById('paymentMethod').value = '';
-            document.getElementById('orderNotes').value = '';
+            // Show checkout section
+            document.querySelector('.container > section:first-of-type').style.display = 'none';
+            document.querySelector('.whatsapp-groups').style.display = 'none';
+            document.getElementById('checkoutSection').style.display = 'block';
             
-            // Reset payment selection
-            document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+            // Reset to step 1
+            goToStep(1);
             
-            // Check if cart has Apple cards
+            // Check if cart contains Apple gift cards
             const hasAppleCards = cart.some(item => item.game === 'Apple Gift Card');
-            const hasNonApple = cart.some(item => item.game !== 'Apple Gift Card');
+            const hasNonAppleItems = cart.some(item => item.game !== 'Apple Gift Card');
             
-            const uidLabel = document.getElementById('uidLabel');
-            const regionLabel = document.getElementById('regionLabel');
-            const gameHint = document.getElementById('gameHint');
-            const appleNote = document.getElementById('appleNote');
+            const gameDetailsSection = document.getElementById('gameDetailsSection');
+            const appleInstructions = document.getElementById('appleInstructions');
+            const regionHint = document.getElementById('regionHint');
+            const uidRequired = document.getElementById('uidRequired');
+            const regionRequired = document.getElementById('regionRequired');
             
-            if (hasAppleCards && !hasNonApple) {
+            if (hasAppleCards && !hasNonAppleItems) {
                 // Only Apple cards
-                uidLabel.style.display = 'none';
-                regionLabel.style.display = 'none';
-                gameHint.innerHTML = '<i class="fas fa-info-circle"></i> Not needed for Apple Gift Cards';
-                appleNote.style.display = 'block';
-            } else if (hasAppleCards && hasNonApple) {
+                gameDetailsSection.style.display = 'none';
+                appleInstructions.style.display = 'block';
+                regionHint.style.display = 'none';
+                uidRequired.style.display = 'none';
+                regionRequired.style.display = 'none';
+            } else if (hasAppleCards && hasNonAppleItems) {
                 // Mixed cart
-                uidLabel.style.display = 'inline';
-                regionLabel.style.display = 'inline';
-                gameHint.innerHTML = '<i class="fas fa-key"></i> Required for game top-ups';
-                appleNote.style.display = 'block';
+                gameDetailsSection.style.display = 'block';
+                appleInstructions.style.display = 'block';
+                regionHint.style.display = 'block';
+                uidRequired.style.display = 'inline';
+                regionRequired.style.display = 'inline';
             } else {
                 // No Apple cards
-                uidLabel.style.display = 'inline';
-                regionLabel.style.display = 'inline';
-                gameHint.innerHTML = '<i class="fas fa-key"></i> Your unique game identifier';
-                appleNote.style.display = 'none';
+                gameDetailsSection.style.display = 'block';
+                appleInstructions.style.display = 'none';
+                regionHint.style.display = 'block';
+                uidRequired.style.display = 'inline';
+                regionRequired.style.display = 'inline';
             }
+            
+            // Scroll to checkout
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function updateStepDisplay() {
+        function goToStep(step) {
+            currentStep = step;
+            
             // Update steps
-            document.querySelectorAll('.step').forEach(step => {
-                const stepNum = parseInt(step.dataset.step);
-                step.classList.toggle('active', stepNum === currentStep);
+            document.querySelectorAll('.step').forEach(stepEl => {
+                const stepNum = parseInt(stepEl.dataset.step);
+                stepEl.classList.toggle('active', stepNum === step);
             });
             
-            // Update step content
-            document.querySelectorAll('.checkout-step').forEach(step => {
-                const stepNum = parseInt(step.dataset.step);
-                step.style.display = stepNum === currentStep ? 'block' : 'none';
+            // Update sections
+            document.querySelectorAll('.checkout-section').forEach(section => {
+                const sectionStep = parseInt(section.dataset.step);
+                section.style.display = sectionStep === step ? 'block' : 'none';
             });
             
             // Update buttons
-            const prevBtn = document.getElementById('prevStepBtn');
-            const nextBtn = document.getElementById('nextStepBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
             
-            prevBtn.style.display = currentStep > 1 ? 'flex' : 'none';
+            prevBtn.style.display = step > 1 ? 'flex' : 'none';
             
-            if (currentStep === 3) {
-                nextBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Complete on WhatsApp';
-                nextBtn.onclick = completeOrder;
+            if (step === 4) {
+                nextBtn.innerHTML = '<i class="fas fa-lock"></i> Complete Order';
+                nextBtn.onclick = showPaymentConfirmation;
             } else {
                 nextBtn.innerHTML = 'Continue <i class="fas fa-arrow-right"></i>';
                 nextBtn.onclick = goToNextStep;
@@ -1313,28 +2827,19 @@
         }
 
         function goToNextStep() {
-            if (!validateCurrentStep()) return;
+            if (!validateCurrentStep()) {
+                return;
+            }
             
-            if (currentStep < 3) {
-                currentStep++;
-                updateStepDisplay();
-                scrollToTop();
+            if (currentStep < 4) {
+                goToStep(currentStep + 1);
             }
         }
 
         function goToPrevStep() {
             if (currentStep > 1) {
-                currentStep--;
-                updateStepDisplay();
-                scrollToTop();
+                goToStep(currentStep - 1);
             }
-        }
-
-        function scrollToTop() {
-            document.querySelector('.checkout-content').scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
         }
 
         function validateCurrentStep() {
@@ -1342,36 +2847,51 @@
             
             // Step 1 validation
             if (currentStep === 1) {
-                const name = document.getElementById('fullName').value.trim();
-                const phone = document.getElementById('whatsappNumber').value.trim();
+                const requiredFields = ['firstName', 'lastName', 'phone'];
+                requiredFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (!field.value.trim()) {
+                        field.classList.add('error');
+                        isValid = false;
+                        showNotification(`Please fill in ${field.placeholder || 'this field'}`, 'error');
+                    } else {
+                        field.classList.remove('error');
+                    }
+                });
                 
-                if (!name) {
-                    showNotification('Please enter your full name');
+                // Email validation (optional)
+                const email = document.getElementById('email').value;
+                if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    document.getElementById('email').classList.add('error');
                     isValid = false;
-                }
-                
-                if (!phone) {
-                    showNotification('Please enter your WhatsApp number');
-                    isValid = false;
+                    showNotification('Please enter a valid email address', 'error');
+                } else {
+                    document.getElementById('email').classList.remove('error');
                 }
             }
             
-            // Step 2 validation (only if needed)
+            // Step 2 validation (only if not Apple cards only)
             if (currentStep === 2) {
                 const hasAppleCardsOnly = cart.every(item => item.game === 'Apple Gift Card');
                 
                 if (!hasAppleCardsOnly) {
-                    const gameUID = document.getElementById('gameUID').value.trim();
+                    const gameUID = document.getElementById('gameUID').value;
                     const gameRegion = document.getElementById('gameRegion').value;
                     
-                    if (!gameUID) {
-                        showNotification('Please enter your game UID');
+                    if (!gameUID.trim()) {
+                        document.getElementById('gameUID').classList.add('error');
                         isValid = false;
+                        showNotification('Please enter your game UID', 'error');
+                    } else {
+                        document.getElementById('gameUID').classList.remove('error');
                     }
                     
                     if (!gameRegion) {
-                        showNotification('Please select your game region');
+                        document.getElementById('gameRegion').classList.add('error');
                         isValid = false;
+                        showNotification('Please select your game region', 'error');
+                    } else {
+                        document.getElementById('gameRegion').classList.remove('error');
                     }
                 }
             }
@@ -1380,23 +2900,111 @@
             if (currentStep === 3) {
                 const paymentMethod = document.getElementById('paymentMethod').value;
                 if (!paymentMethod) {
-                    showNotification('Please select a payment method');
                     isValid = false;
+                    showNotification('Please select a payment method', 'error');
                 }
             }
             
             return isValid;
         }
 
+        function showPaymentConfirmation() {
+            if (!validateCurrentStep()) {
+                return;
+            }
+            
+            // Calculate total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Update modal content
+            document.getElementById('paymentAmount').textContent = `D${total}`;
+            const selectedMethod = document.getElementById('paymentMethod').value;
+            document.getElementById('paymentMethodDisplay').textContent = selectedMethod ? selectedMethod.toUpperCase() : '—';
+            
+            // Show modal
+            document.getElementById('confirmationModal').classList.add('active');
+        }
+
+        // WhatsApp Helper Function for Mobile Compatibility
+        function openWhatsApp(url) {
+            // Try multiple methods for maximum mobile compatibility
+            try {
+                // Method 1: Direct location change (works on iOS Safari)
+                window.location.href = url;
+                
+                // Method 2: Fallback with timeout
+                setTimeout(() => {
+                    // If still on same page, try window.open
+                    if (!document.hidden) {
+                        const newWindow = window.open(url, '_blank');
+                        if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                            // If popup blocked, create and click a link
+                            const link = document.createElement('a');
+                            link.href = url;
+                            link.target = '_blank';
+                            link.rel = 'noopener noreferrer';
+                            link.style.display = 'none';
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        }
+                    }
+                }, 250);
+                return true;
+            } catch (e) {
+                console.error('Error opening WhatsApp:', e);
+                return false;
+            }
+        }
+
+        // Clean, compact WhatsApp message for seller
+        function buildSellerWhatsAppMessage(order) {
+            let message = `🛒 *NEW ORDER* - ANONYMOUS GAMING\n`;
+            message += `ID: ${order.orderId} | ${order.date}\n`;
+            message += `Total: D${order.total}\n\n`;
+            
+            message += `👤 *Customer Info*\n`;
+            message += `Name: ${order.customer.firstName} ${order.customer.lastName}\n`;
+            message += `WhatsApp: ${order.customer.phone}\n`;
+            if (order.customer.email) {
+                message += `Email: ${order.customer.email}\n`;
+            }
+            
+            if (order.gameDetails.uid && order.gameDetails.region) {
+                message += `Game UID: ${order.gameDetails.uid}\n`;
+                message += `Game Region: ${order.gameDetails.region}\n`;
+            }
+            message += `\n`;
+            
+            message += `🛍️ *Order Items*\n`;
+            order.items.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                message += `${index + 1}. ${item.item} (${item.game}) - ${item.quantity} × D${item.price} = D${itemTotal}\n`;
+            });
+            
+            message += `\n💰 *Payment*\n`;
+            message += `Method: ${order.payment.method.toUpperCase()}\n`;
+            message += `Amount: D${order.total} GMD\n`;
+            
+            if (order.notes) {
+                message += `\n📝 *Notes*\n${order.notes}`;
+            }
+            
+            message += `\n\nStatus: 📋 Pending`;
+            
+            return message;
+        }
+
         function completeOrder() {
-            if (!validateCurrentStep()) return;
+            showLoading(true);
             
             // Get form data
             const orderData = {
                 customer: {
-                    name: document.getElementById('fullName').value,
-                    phone: document.getElementById('whatsappNumber').value,
-                    email: document.getElementById('email').value
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value
                 },
                 gameDetails: {
                     uid: document.getElementById('gameUID').value,
@@ -1408,77 +3016,90 @@
                 notes: document.getElementById('orderNotes').value,
                 items: cart,
                 total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-                orderId: 'ORD' + Date.now().toString().slice(-6),
-                date: new Date().toLocaleDateString()
+                orderId: 'ORD-' + Date.now().toString().slice(-8),
+                date: new Date().toLocaleString()
             };
             
-            // Build WhatsApp message
-            const message = buildWhatsAppMessage(orderData);
+            // Build WhatsApp message for YOU (the seller)
+            const message = buildSellerWhatsAppMessage(orderData);
+            
+            // Close modal
+            document.getElementById('confirmationModal').classList.remove('active');
             
             // Show loading
-            document.getElementById('loading').classList.add('active');
+            showNotification('Preparing order details...', 'success');
             
             // Create WhatsApp URL
             const whatsappURL = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
             
-            // Open WhatsApp after delay
+            // After 1.5 seconds, open WhatsApp with the order details
             setTimeout(() => {
-                // Open WhatsApp directly (works best on mobile)
-                window.location.href = whatsappURL;
+                // Try to open WhatsApp
+                const opened = openWhatsApp(whatsappURL);
                 
-                // Fallback after 2 seconds
+                // If WhatsApp didn't open, show manual instructions
                 setTimeout(() => {
-                    document.getElementById('loading').classList.remove('active');
-                    
-                    // Clear cart and close checkout
-                    cart = [];
-                    saveCart();
-                    updateCartSummary();
-                    closeCheckout();
-                    
-                    showNotification('WhatsApp opened! Send your order details.');
-                }, 2000);
-            }, 1000);
+                    if (!opened) {
+                        showNotification('WhatsApp not opening? Please manually message +220 678 7259 with your order details.', 'warning');
+                        
+                        // Optionally show the message so they can copy-paste
+                        const copyText = "Order Details:\n\n" + 
+                            `Order ID: ${orderData.orderId}\n` +
+                            `Name: ${orderData.customer.firstName} ${orderData.customer.lastName}\n` +
+                            `Total: D${orderData.total}\n` +
+                            `Payment Method: ${orderData.payment.method}\n\n` +
+                            "Please send this info to +220 678 7259 on WhatsApp.";
+                        
+                        // Create a textarea to copy from
+                        const textArea = document.createElement('textarea');
+                        textArea.value = copyText;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        
+                        showNotification('Order details copied! Paste them in WhatsApp.', 'success');
+                    }
+                }, 1000);
+                
+                // Clear cart and reset
+                cart = [];
+                saveCart();
+                updateOrderSummary();
+                
+                // Reset form
+                document.querySelectorAll('.form-input').forEach(input => {
+                    if (input.type !== 'hidden') input.value = '';
+                });
+                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                
+                // Go back to shop
+                setTimeout(() => {
+                    document.querySelector('.container > section:first-of-type').style.display = 'block';
+                    document.querySelector('.whatsapp-groups').style.display = 'block';
+                    document.getElementById('checkoutSection').style.display = 'none';
+                    showNotification('WhatsApp should open with your order details. If not, please message +220 678 7259 manually.', 'success');
+                    showLoading(false);
+                }, 1000);
+            }, 1500);
         }
 
-        function buildWhatsAppMessage(order) {
-            let message = `🛒 NEW ORDER - ANONYMOUS GAMING\n`;
-            message += `────────────────────\n`;
-            message += `Order ID: ${order.orderId}\n`;
-            message += `Date: ${order.date}\n`;
-            message += `Total: D${order.total}\n\n`;
+        // Notification System
+        function showNotification(text, type = 'success') {
+            const notification = document.getElementById('notification');
+            const message = document.getElementById('notificationMessage');
             
-            message += `👤 CUSTOMER\n`;
-            message += `Name: ${order.customer.name}\n`;
-            message += `WhatsApp: ${order.customer.phone}\n`;
-            if (order.customer.email) {
-                message += `Email: ${order.customer.email}\n`;
-            }
+            message.textContent = text;
+            notification.className = `notification ${type}`;
+            notification.classList.add('active');
             
-            if (order.gameDetails.uid && order.gameDetails.region) {
-                message += `Game UID: ${order.gameDetails.uid}\n`;
-                message += `Region: ${order.gameDetails.region}\n`;
-            }
-            message += `\n`;
-            
-            message += `🛍️ ITEMS\n`;
-            order.items.forEach((item, index) => {
-                message += `${index + 1}. ${item.item} (${item.game}) - ${item.quantity} × D${item.price}\n`;
-            });
-            message += `\n`;
-            
-            message += `💰 PAYMENT\n`;
-            message += `Method: ${order.payment.method.toUpperCase()}\n`;
-            message += `Amount: D${order.total} GMD\n`;
-            
-            if (order.notes) {
-                message += `\n📝 NOTES\n${order.notes}`;
-            }
-            
-            message += `\n\nStatus: Pending`;
-            
-            return message;
+            setTimeout(() => {
+                notification.classList.remove('active');
+            }, 4000);
         }
+
+        // Initialize cart count
+        updateCartCount();
     </script>
 </body>
 </html>

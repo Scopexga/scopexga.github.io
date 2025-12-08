@@ -2321,12 +2321,49 @@
                         }
                     }
                 }, 250);
+                return true;
             } catch (e) {
                 console.error('Error opening WhatsApp:', e);
-                // Last resort: Show instructions
                 return false;
             }
-            return true;
+        }
+
+        // Clean, compact WhatsApp message for seller
+        function buildSellerWhatsAppMessage(order) {
+            let message = `🛒 *NEW ORDER* - ANONYMOUS GAMING\n`;
+            message += `ID: ${order.orderId} | ${order.date}\n`;
+            message += `Total: D${order.total}\n\n`;
+            
+            message += `👤 *Customer Info*\n`;
+            message += `Name: ${order.customer.firstName} ${order.customer.lastName}\n`;
+            message += `WhatsApp: ${order.customer.phone}\n`;
+            if (order.customer.email) {
+                message += `Email: ${order.customer.email}\n`;
+            }
+            
+            if (order.gameDetails.uid && order.gameDetails.region) {
+                message += `Game UID: ${order.gameDetails.uid}\n`;
+                message += `Game Region: ${order.gameDetails.region}\n`;
+            }
+            message += `\n`;
+            
+            message += `🛍️ *Order Items*\n`;
+            order.items.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                message += `${index + 1}. ${item.item} (${item.game}) - ${item.quantity} × D${item.price} = D${itemTotal}\n`;
+            });
+            
+            message += `\n💰 *Payment*\n`;
+            message += `Method: ${order.payment.method.toUpperCase()}\n`;
+            message += `Amount: D${order.total} GMD\n`;
+            
+            if (order.notes) {
+                message += `\n📝 *Notes*\n${order.notes}`;
+            }
+            
+            message += `\n\nStatus: 📋 Pending`;
+            
+            return message;
         }
 
         function completeOrder() {
@@ -2413,67 +2450,6 @@
                     showNotification('WhatsApp should open with your order details. If not, please message +220 678 7259 manually.', 'success');
                 }, 1000);
             }, 1500);
-        }
-
-        // Build WhatsApp message for YOU (the seller)
-        function buildSellerWhatsAppMessage(order) {
-            const hasAppleCards = order.items.some(item => item.game === 'Apple Gift Card');
-            
-            let message = `🛒 NEW ORDER RECEIVED - ANONYMOUS GAMING\n`;
-            message += `══════════════════════════════════════════════════════════\n\n`;
-            
-            message += `📋 ORDER SUMMARY\n`;
-            message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-            message += `• Order ID: ${order.orderId}\n`;
-            message += `• Date/Time: ${order.date}\n`;
-            message += `• Total Amount: D${order.total} GMD\n\n`;
-            
-            message += `👤 CUSTOMER DETAILS\n`;
-            message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-            message += `• Name: ${order.customer.firstName} ${order.customer.lastName}\n`;
-            message += `• WhatsApp: ${order.customer.phone}\n`;
-            if (order.customer.email) {
-                message += `• Email: ${order.customer.email}\n`;
-            }
-            
-            if (order.gameDetails.uid && order.gameDetails.region) {
-                message += `• Game UID: ${order.gameDetails.uid}\n`;
-                message += `• Game Region: ${order.gameDetails.region}\n`;
-            }
-            message += `\n`;
-            
-            message += `🛍️ ORDER ITEMS\n`;
-            message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-            order.items.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                message += `${index + 1}. ${item.item}\n`;
-                message += `   🎮 Game: ${item.game}\n`;
-                message += `   📦 Quantity: ${item.quantity}\n`;
-                message += `   💰 Price: D${item.price} × ${item.quantity} = D${itemTotal}\n`;
-                message += `\n`;
-            });
-            
-            message += `💰 PAYMENT INFORMATION\n`;
-            message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-            message += `• Payment Method: ${order.payment.method.toUpperCase()}\n`;
-            message += `• Total to Collect: D${order.total} GMD\n`;
-            message += `• Status: PENDING PAYMENT\n\n`;
-            
-            if (order.notes) {
-                message += `📝 CUSTOMER NOTES\n`;
-                message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-                message += `${order.notes}\n\n`;
-            }
-            
-            message += `⚡ ACTION REQUIRED:\n`;
-            message += `1. Contact customer at ${order.customer.phone}\n`;
-            message += `2. Confirm payment method: ${order.payment.method}\n`;
-            message += `3. Process the order after payment\n`;
-            message += `4. Deliver items to customer\n\n`;
-            
-            message += `🔔 Order created via ANONYMOUS GAMING Website`;
-            
-            return message;
         }
 
         // Notification System

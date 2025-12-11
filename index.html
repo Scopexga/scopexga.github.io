@@ -731,15 +731,15 @@
         /* Game Category Styles */
         .free-fire { border-top: 4px solid #ff6600; }
         .pubg { border-top: 4px solid #ffaa00; }
-        .bloodstrike { border-top: 4px solid #ff0040; }
+        .blood-strike { border-top: 4px solid #ff0040; }
         .roblox { border-top: 4px solid #0055ff; }
-        .apple { border-top: 4px solid #333333; }
+        .apple-gift-card { border-top: 4px solid #333333; }
 
         .free-fire .price-game i { color: #ff6600; }
         .pubg .price-game i { color: #ffaa00; }
-        .bloodstrike .price-game i { color: #ff0040; }
+        .blood-strike .price-game i { color: #ff0040; }
         .roblox .price-game i { color: #0055ff; }
-        .apple .price-game i { color: #333333; }
+        .apple-gift-card .price-game i { color: #333333; }
 
         /* Website Header */
         .website-header {
@@ -1561,7 +1561,7 @@
     </div>
 
     <script>
-        // Complete Price Data with ALL prices from your original code
+        // Your priceData array - now properly formatted
         const priceData = [
             // Free Fire Prices
             {
@@ -1747,84 +1747,106 @@
             {
                 id: 17,
                 game: "Blood Strike",
-                item: "112 Gold (96 + 5 + 11)",
-                price: 76,
+                item: "105 Gold (100 + 5)",
+                price: 85,
                 featured: false,
                 discount: null,
-                perUnit: "D0.68 per gold",
+                perUnit: "D0.81 per gold",
                 features: ["Instant delivery", "No login required", "24/7 support"],
                 category: "Blood Strike"
             },
             {
                 id: 18,
                 game: "Blood Strike",
-                item: "105 Gold",
-                price: 86,
+                item: "320 Gold (300 + 20)",
+                price: 225,
                 featured: false,
                 discount: null,
-                perUnit: "D0.82 per gold",
+                perUnit: "D0.70 per gold",
                 features: ["Basic pack", "Quick delivery", "Reliable service"],
                 category: "Blood Strike"
             },
             {
                 id: 19,
                 game: "Blood Strike",
-                item: "320 Gold (300 + 20)",
-                price: 222,
+                item: "540 Gold (500 + 40)",
+                price: 367,
                 featured: false,
                 discount: "10% OFF",
-                perUnit: "D0.69 per gold",
+                perUnit: "D0.68 per gold",
                 features: ["Popular choice", "Extra bonus", "Fast delivery"],
                 category: "Blood Strike"
             },
             {
                 id: 20,
                 game: "Blood Strike",
-                item: "515 Gold (490 + 25)",
-                price: 374,
+                item: "1,100 Gold (1000 + 100)",
+                price: 750,
                 featured: false,
                 discount: "12% OFF",
-                perUnit: "D0.73 per gold",
+                perUnit: "D0.68 per gold",
                 features: ["Great value", "Bonus gold", "Premium support"],
                 category: "Blood Strike"
             },
             {
                 id: 21,
                 game: "Blood Strike",
-                item: "540 Gold (500 + 40)",
-                price: 418,
+                item: "2,260 Gold (2000 + 260)",
+                price: 1450,
                 featured: false,
                 discount: "15% OFF",
-                perUnit: "D0.77 per gold",
+                perUnit: "D0.64 per gold",
                 features: ["Special offer", "Extra bonus", "Quick delivery"],
                 category: "Blood Strike"
             },
             {
                 id: 22,
                 game: "Blood Strike",
-                item: "1,011 Gold (951 + 60)",
-                price: 732,
+                item: "5,800 Gold (5000 + 800)",
+                price: 3500,
                 featured: true,
                 discount: "18% OFF",
-                perUnit: "D0.72 per gold",
+                perUnit: "D0.60 per gold",
                 features: ["Best seller", "Massive bonus", "Priority service"],
                 category: "Blood Strike"
             },
             {
                 id: 23,
                 game: "Blood Strike",
-                item: "1,100 Gold (1000 + 100)",
-                price: 782,
+                item: "51 Gold (50 + 1)",
+                price: 36,
                 featured: false,
                 discount: "20% OFF",
                 perUnit: "D0.71 per gold",
-                features: ["Ultimate pack", "Maximum bonus", "VIP support"],
+                features: ["Small pack", "Quick delivery", "Instant support"],
+                category: "Blood Strike"
+            },
+            {
+                id: 24,
+                game: "Blood Strike",
+                item: "Strike Pass Elite",
+                price: 350,
+                featured: false,
+                discount: null,
+                perUnit: null,
+                features: ["Elite Pass Access", "Premium rewards", "VIP support"],
+                category: "Blood Strike"
+            },
+            {
+                id: 25,
+                game: "Blood Strike",
+                item: "Strike Pass Premium",
+                price: 750,
+                featured: true,
+                discount: null,
+                perUnit: null,
+                features: ["Premium Pass Access", "Exclusive rewards", "VIP support"],
                 category: "Blood Strike"
             },
 
             // Roblox Prices
             {
-                id: 24,
+                id: 26,
                 game: "Roblox",
                 item: "80 Robux",
                 price: 210,
@@ -1835,137 +1857,137 @@
                 category: "Roblox"
             },
             {
-                id: 25,
+                id: 27,
                 game: "Roblox",
-                item: "400 Robux",
+                item: "500 Robux",
                 price: 500,
                 featured: false,
                 discount: "5% OFF",
-                perUnit: "D1.25 per Robux",
+                perUnit: "D1.00 per Robux",
                 features: ["Best value", "Fast delivery", "Reliable service"],
-                category: "Roblox"
-            },
-            {
-                id: 26,
-                game: "Roblox",
-                item: "800 Robux",
-                price: 980,
-                featured: false,
-                discount: "10% OFF",
-                perUnit: "D1.23 per Robux",
-                features: ["Popular choice", "Premium support", "Quick delivery"],
-                category: "Roblox"
-            },
-            {
-                id: 27,
-                game: "Roblox",
-                item: "1,700 Robux",
-                price: 1800,
-                featured: false,
-                discount: "15% OFF",
-                perUnit: "D1.06 per Robux",
-                features: ["Great deal", "Extra bonus", "Priority service"],
                 category: "Roblox"
             },
             {
                 id: 28,
                 game: "Roblox",
-                item: "4,500 Robux",
-                price: 4300,
+                item: "1,000 Robux",
+                price: 980,
                 featured: false,
-                discount: "20% OFF",
-                perUnit: "D0.96 per Robux",
-                features: ["Premium pack", "Massive value", "VIP support"],
+                discount: "10% OFF",
+                perUnit: "D0.98 per Robux",
+                features: ["Popular choice", "Premium support", "Quick delivery"],
                 category: "Roblox"
             },
             {
                 id: 29,
                 game: "Roblox",
-                item: "10,000 Robux",
+                item: "2,000 Robux",
+                price: 1800,
+                featured: false,
+                discount: "15% OFF",
+                perUnit: "D0.90 per Robux",
+                features: ["Great deal", "Extra bonus", "Priority service"],
+                category: "Roblox"
+            },
+            {
+                id: 30,
+                game: "Roblox",
+                item: "5,250 Robux",
+                price: 4300,
+                featured: false,
+                discount: "20% OFF",
+                perUnit: "D0.82 per Robux",
+                features: ["Premium pack", "Massive value", "VIP support"],
+                category: "Roblox"
+            },
+            {
+                id: 31,
+                game: "Roblox",
+                item: "11,000 Robux",
                 price: 8350,
                 featured: true,
                 discount: "25% OFF",
-                perUnit: "D0.84 per 1k Robux",
+                perUnit: "D0.76 per Robux",
                 features: ["Best value", "Premium membership", "24/7 support"],
                 category: "Roblox"
             },
 
             // Apple Gift Card Prices
             {
-                id: 30,
+                id: 32,
                 game: "Apple Gift Card",
                 item: "$2 Apple Gift Card",
                 price: 210,
                 featured: false,
                 discount: null,
                 perUnit: "D105 per $1",
-                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                features: ["US Apple Store", "In App Purchase", "Setup guide"],
                 category: "Apple Gift Card"
             },
             {
-                id: 31,
+                id: 33,
                 game: "Apple Gift Card",
                 item: "$5 Apple Gift Card",
                 price: 500,
                 featured: false,
                 discount: null,
                 perUnit: "D100 per $1",
-                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                features: ["US Apple Store", "In App Purchase", "Setup guide"],
                 category: "Apple Gift Card"
             },
             {
-                id: 32,
+                id: 34,
                 game: "Apple Gift Card",
                 item: "$10 Apple Gift Card",
                 price: 950,
                 featured: false,
                 discount: "5% OFF",
                 perUnit: "D95 per $1",
-                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                features: ["US Apple Store", "In App Purchase", "Setup guide"],
                 category: "Apple Gift Card"
             },
             {
-                id: 33,
+                id: 35,
                 game: "Apple Gift Card",
                 item: "$20 Apple Gift Card",
                 price: 1800,
                 featured: false,
                 discount: "10% OFF",
                 perUnit: "D90 per $1",
-                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                features: ["US Apple Store", "In App Purchase", "Setup guide"],
                 category: "Apple Gift Card"
             },
             {
-                id: 34,
+                id: 36,
                 game: "Apple Gift Card",
                 item: "$25 Apple Gift Card",
                 price: 2250,
                 featured: false,
                 discount: "10% OFF",
                 perUnit: "D90 per $1",
-                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                features: ["US Apple Store", "In App Purchase", "Setup guide"],
                 category: "Apple Gift Card"
             },
             {
-                id: 35,
+                id: 37,
                 game: "Apple Gift Card",
                 item: "$50 Apple Gift Card",
                 price: 4300,
                 featured: false,
                 discount: "14% OFF",
                 perUnit: "D86 per $1",
-                features: ["US Apple Store", "Email delivery", "Setup guide"],
+                features: ["US Apple Store", "In App Purchase", "Setup guide"],
                 category: "Apple Gift Card"
             },
             {
-                id: 36,
+                id: 38,
                 game: "Apple Gift Card",
                 item: "$100 Apple Gift Card",
                 price: 8350,
                 featured: true,
                 discount: "17% OFF",
                 perUnit: "D83.5 per $1",
-                features: ["Best value", "US Apple Store", "Email delivery"],
+                features: ["Best value", "US Apple Store", "In App Purchase"],
                 category: "Apple Gift Card"
             }
         ];
@@ -1977,9 +1999,10 @@
         
         // Your WhatsApp number for receiving orders
         const YOUR_WHATSAPP_NUMBER = "2206787259";
-
+        
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('✅ Price data loaded:', priceData.length, 'items');
             renderPriceCards();
             updateOrderSummary();
             setupEventListeners();
@@ -2059,7 +2082,8 @@
             
             filteredItems.forEach(item => {
                 const card = document.createElement('div');
-                card.className = `price-card ${item.featured ? 'featured' : ''} ${item.category.toLowerCase().replace(/\s+/g, '-')}`;
+                const categoryClass = item.category.toLowerCase().replace(/\s+/g, '-');
+                card.className = `price-card ${item.featured ? 'featured' : ''} ${categoryClass}`;
                 
                 card.innerHTML = `
                     ${item.discount ? `<div class="price-badge">${item.discount}</div>` : ''}
@@ -2074,7 +2098,7 @@
                         <span class="price-currency">GMD</span>
                     </div>
                     <div class="price-per-unit">
-                        <i class="fas fa-chart-line"></i> ${item.perUnit}
+                        <i class="fas fa-chart-line"></i> ${item.perUnit || 'One-time purchase'}
                     </div>
                     <ul class="price-features">
                         ${item.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}

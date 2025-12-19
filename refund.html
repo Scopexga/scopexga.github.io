@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>No Refund Policy | ANONY SHOP</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f6f8;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      color: #111;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    p, li {
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    .warning {
+      background: #fff3cd;
+      border-left: 5px solid #ff9800;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .brand {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* Modal popup styles */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .modal {
+      background: #fff;
+      max-width: 520px;
+      width: 94%;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+    }
+
+    .modal h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+    }
+
+    .modal p { margin: 6px 0 12px 0; }
+
+    .modal-footer { display: flex; gap: 10px; align-items: center; justify-content: flex-end; margin-top: 12px; }
+
+    .btn {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 0;
+      cursor: pointer;
+      background: #e0e0e0;
+      color: #111;
+    }
+
+    .btn.primary { background: #111827; color: #fff; }
+
+    .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+    .checkbox-row { display:flex; gap:10px; align-items:center; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🕶 ANONY SHOP – No Refund Policy</h1>
+    <p><strong>Effective Date:</strong> Immediately</p>
+
+    <div class="warning">
+      ALL SALES ARE FINAL. PLEASE READ CAREFULLY BEFORE CONFIRMING ANY ORDER.
+    </div>
+
+    <p>
+      <span class="brand">ANONY SHOP</span> provides digital products and services,
+      including gaming top-ups, virtual currency, gift cards, and in-game items.
+      Due to the nature of these digital goods, all transactions are final.
+    </p>
+
+    <h2>1. Final Sale Policy</h2>
+    <p>
+      Once an order is confirmed, processed, or delivered, it <strong>cannot be cancelled,
+      reversed, or refunded</strong> under any circumstance.
+    </p>
+
+    <ul>
+      <li>No refunds</li>
+      <li>No cancellations</li>
+      <li>No exchanges</li>
+      <li>No chargebacks</li>
+    </ul>
+
+    <h2>2. Customer Responsibility</h2>
+    <p>
+      The customer is fully responsible for providing accurate information when placing an order,
+      including but not limited to:
+    </p>
+
+    <ul>
+      <li>Correct game selection</li>
+      <li>Correct Player ID / Username</li>
+      <li>Correct server or region</li>
+    </ul>
+
+    <p>
+      <span class="brand">ANONY SHOP</span> is <strong>not responsible</strong> for errors made by the customer.
+      Orders completed using incorrect details are not eligible for refund or correction.
+    </p>
+
+    <h2>3. Digital Goods Disclaimer</h2>
+    <p>
+      All items sold are digital and delivered electronically.
+      Once delivery or processing has begun, the product cannot be retrieved,
+      returned, or reused.
+    </p>
+
+    <h2>4. Agreement</h2>
+    <p>
+      By placing and confirming an order on <span class="brand">ANONY SHOP</span>,
+      you acknowledge that you have read, understood, and agreed to this No Refund Policy.
+    </p>
+
+    <p>
+      If you are unsure about any detail of your order, <strong>DO NOT CONFIRM IT</strong>.
+    </p>
+
+    <div class="footer">
+      🕶 ANONY SHOP <br />
+      Secure Transactions • Verified Orders • Final Sales
+    </div>
+  </div>
+
+  <!-- No-refund agreement modal -->
+  <div id="refundPopup" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="refundTitle" style="display:none">
+    <div class="modal" role="document">
+      <h3 id="refundTitle">Please acknowledge our No Refund Policy</h3>
+      <p>All sales on ANONY SHOP are final. You must agree to this policy before continuing.</p>
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="agreeRefund" />
+        <label for="agreeRefund">I have read and agree that all sales are final (no refunds).</label>
+      </div>
+
+      <div class="modal-footer">
+        <button id="closeBtn" class="btn">Close</button>
+        <button id="agreeBtn" class="btn primary" disabled>Agree and continue</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script>
+  (function() {
+    const popup = document.getElementById("refundPopup");
+    const checkbox = document.getElementById("agreeRefund");
+    const button = document.getElementById("agreeBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const FOCUSABLE = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    function openPopup() {
+      popup.style.display = "flex";
+      document.body.style.overflow = 'hidden';
+      popup.setAttribute('aria-hidden', 'false');
+      // focus the checkbox
+      setTimeout(() => { checkbox.focus(); }, 50);
+      document.addEventListener('keydown', trapKeys);
+    }
+
+    function closePopup() {
+      popup.style.display = "none";
+      document.body.style.overflow = '';
+      popup.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('keydown', trapKeys);
+    }
+
+    // Check if already agreed
+    if (localStorage.getItem("anony_refund_agreed") === "yes") {
+      popup.style.display = "none";
+    } else {
+      openPopup();
+    }
+
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        button.disabled = false;
+      } else {
+        button.disabled = true;
+      }
+    });
+
+    button.addEventListener("click", () => {
+      localStorage.setItem("anony_refund_agreed", "yes");
+      closePopup();
+    });
+
+    closeBtn.addEventListener('click', () => {
+      // If user closes without agreeing, keep showing next time.
+      closePopup();
+    });
+
+    // Accessibility: trap focus inside modal while open
+    function trapKeys(e) {
+      if (e.key === 'Escape') {
+        // allow closing with Escape, but do not mark agreed
+        closePopup();
+        return;
+      }
+      if (e.key === 'Tab') {
+        const nodes = popup.querySelectorAll(FOCUSABLE);
+        if (!nodes.length) return;
+        const first = nodes[0];
+        const last = nodes[nodes.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    }
+  })();
+</script>
+</html>

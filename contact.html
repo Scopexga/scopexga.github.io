@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Support - ANONYMOUS GAMING TOP-UPS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .contact-hero {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(5,5,8,0.9), rgba(5,5,8,0.9));
+        }
+        
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .contact-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.07);
+            transition: all 0.3s;
+        }
+        
+        .contact-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--darker);
+        }
+        
+        .contact-card h3 {
+            color: var(--light);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,255,136,0.3);
+        }
+        
+        .whatsapp-button {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        
+        .faq-section {
+            margin-top: 80px;
+        }
+        
+        .faq-item {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+        
+        .faq-question {
+            color: var(--light);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .faq-answer {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .business-hours {
+            background: rgba(0,255,136,0.05);
+            border: 1px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .business-hours h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="website-header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>ANONYMOUS GAMING</h1>
+                    <span>PREMIUM GAME TOP-UPS</span>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html" class="nav-link active"><i class="fas fa-headset"></i> Contact</a>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="https://wa.me/2206787259" target="_blank" class="whatsapp-cta">
+                    <i class="fab fa-whatsapp"></i> +220 678 7259
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Contact & Support</h1>
+            <p class="hero-subtitle">We're here to help 24/7. Choose your preferred contact method.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- WhatsApp Support -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Support</h3>
+                    <p class="contact-info">Fastest response time. Ideal for order support, payment issues, and urgent requests.</p>
+                    <a href="https://wa.me/2206787259" target="_blank" class="contact-button whatsapp-button">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+                
+                <!-- Email Support -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Support</h3>
+                    <p class="contact-info">For detailed inquiries, documentation requests, or non-urgent matters.</p>
+                    <a href="mailto:contact@anony.store" class="contact-button">
+                        <i class="fas fa-envelope"></i> Send Email
+                    </a>
+                </div>
+                
+                <!-- Business Information -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Business Information</h3>
+                    <div class="contact-info">
+                        <p><strong>ANONYMOUS GAMING TOP-UPS</strong></p>
+                        <p>Premium Game Top-Ups & Gift Cards</p>
+                        <p>Gambia, West Africa</p>
+                    </div>
+                    <div class="company-info">
+                        <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +220 678 7259</p>
+                        <p><i class="fas fa-clock"></i> <strong>Support:</strong> 24/7</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Business Hours -->
+            <div class="business-hours">
+                <h3><i class="fas fa-clock"></i> Business Hours</h3>
+                <p style="color: var(--gray); line-height: 1.8;">
+                    <strong>Customer Support:</strong> 24 hours a day, 7 days a week<br>
+                    <strong>Order Processing:</strong> 24/7 - Instant delivery anytime<br>
+                    <strong>Response Time:</strong> Typically within 5-15 minutes on WhatsApp
+                </p>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2 style="color: var(--light); margin-bottom: 40px; font-size: 2rem;">Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary);"></i>
+                        How long does delivery take?
+                    </div>
+                    <div class="faq-answer">
+                        Most top-ups are delivered within 5-15 minutes after payment confirmation. Apple Gift Cards may take up to 1 hour for email delivery.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary);"></i>
+                        Is WhatsApp OTP verification safe?
+                    </div>
+                    <div class="faq-answer">
+                        Yes! Our WhatsApp OTP system adds an extra layer of security to prevent unauthorized orders. We generate unique codes for each transaction.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary);"></i>
+                        What payment methods do you accept?
+                    </div>
+                    <div class="faq-answer">
+                        We accept wave, APS Wallet, and Comcach. All payments are processed securely with instant verification.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary);"></i>
+                        Do I need to provide my game login details?
+                    </div>
+                    <div class="faq-answer">
+                        No! We never ask for your game account passwords. We only need your Game UID/ID for delivery.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary);"></i>
+                        Can I get a refund?
+                    </div>
+                    <div class="faq-answer">
+                        Refunds are available for undelivered orders within 24 hours. Please contact our support team for assistance.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>ANONYMOUS GAMING</h3>
+                    </div>
+                    <p>Your trusted partner for premium gaming top-ups and gift cards.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html"><i class="fas fa-headset"></i> Contact Us</a></li>
+                        <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                        <li><a href="refund.html"><i class="fas fa-undo"></i> Refund Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="company-info">
+                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/2206787259">+220 678 7259</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:anonytopup.store@gmail.com">anonytopup.store@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; 2025 ANONYMOUS GAMING TOP-UPS. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <a href="https://wa.me/2206787259" target="_blank" class="chat-button">
+            <i class="fab fa-whatsapp"></i>
+            <span>Need help?</span>
+        </a>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
